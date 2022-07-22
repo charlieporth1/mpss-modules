@@ -55,6 +55,8 @@ extern "C" {
 #include <linux/timer.h>
 #include <linux/irqflags.h>
 #include <linux/time.h>
+#include <linux/time32.h>
+#include <linux/time64.h>
 #include <linux/spinlock.h>
 #include <linux/mutex.h>
 #include <linux/semaphore.h>

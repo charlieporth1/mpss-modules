@@ -40,6 +40,10 @@
 #include "mic/mic_dma_api.h"
 #include <mic/micscif.h>
 #include <mic/micscif_smpt.h>
+#include <linux/timekeeping.h>
+#include <linux/ktime.h>
+#include <linux/time.h>
+#include <linux/mm.h>
 
 // constants defined for flash commands for setting PCI aperture
 #define RASMM_DEFAULT_OFFSET 0x4000000
@@ -54,6 +58,16 @@
 #define FREQ_5P5 0x66E
 #define MASK_MEMFREQ 0xfff
 #define SHIFT_MEMFREQ 16
+
+#define page_cache_get(page) get_page(page)
+#define page_cache_release(page) put_page(page)
+void do_gettimeofday(struct timeval *tv)
+{
+struct timespec64 ts;
+ktime_get_real_ts64(&ts);
+tv->tv_sec = ts.tv_sec;
+tv->tv_usec = ts.tv_nsec;
+}
 
 int
 mic_unpin_user_pages(struct page **pages, uint32_t nf_pages)
@@ -89,8 +103,12 @@ mic_pin_user_pages (void *data, struct page **pages, uint32_t len, int32_t *nf_p
 
 	// pin the user pages; use semaphores on linux for doing the same
 	down_read(&current->mm->mmap_sem);
-	*nf_pages = (int32_t)get_user_pages(current, current->mm, (uint64_t)data,
-			  nr_pages, PROT_WRITE, 1, pages, NULL);
+	*nf_pages = (int32_t)get_user_pages(current->mm, (uint64_t)data,
+			   PROT_WRITE, pages, NULL);
+// CHECK IF BROKEN
+// og ctp
+//	*nf_pages = (int32_t)get_user_pages(current, current->mm, (uint64_t)data,
+//			  nr_pages, PROT_WRITE, 1, pages, NULL);
 	up_read(&current->mm->mmap_sem);
 
 	// compare if the no of final pages is equal to no of requested pages
@@ -309,6 +327,9 @@ send_flash_cmd(mic_ctx_t *mic_ctx, MIC_FLASH_CMD_TYPE type, void *data, uint32_t
 	case RAS_CMD_ECC_DISABLE:
 	case RAS_CMD_ECC_ENABLE:
 	case RAS_CMD_EXIT:
+//		  ktime_get_real_ts64(t);
+// CHECK IF BROKENa
+// OG CTP
 		do_gettimeofday(&t);
 		SBOX_WRITE(t.tv_sec, mmio_va, SBOX_SCRATCH3);
 		scratch1reg.bits.command = type;
