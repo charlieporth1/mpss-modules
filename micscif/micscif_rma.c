@@ -57,20 +57,19 @@ void micscif_rma_destroy_tcw(struct rma_mmu_notifier *mmn,
 #ifdef CONFIG_MMU_NOTIFIER
 static void scif_mmu_notifier_release(struct mmu_notifier *mn,
 			struct mm_struct *mm);
-static void scif_mmu_notifier_invalidate_page(struct mmu_notifier *mn,
+// OG CTP BROKE FIX
+static void scif_mmu_notifier_invalidate_range(struct mmu_notifier *mn,
 				struct mm_struct *mm,
-				unsigned long address);
-static void scif_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
-				       struct mm_struct *mm,
-				       unsigned long start, unsigned long end);
+				unsigned long start, unsigned long end);
+static int scif_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
+				      const struct mmu_notifier_range *range);
 static void scif_mmu_notifier_invalidate_range_end(struct mmu_notifier *mn,
-				     struct mm_struct *mm,
-				     unsigned long start, unsigned long end);
+				     const struct mmu_notifier_range *range);
 static const struct mmu_notifier_ops scif_mmu_notifier_ops = {
 	.release = scif_mmu_notifier_release,
 	.clear_flush_young = NULL,
 	.change_pte = NULL,/*TODO*/
-	.invalidate_page = scif_mmu_notifier_invalidate_page,
+	.invalidate_range = scif_mmu_notifier_invalidate_range,
 	.invalidate_range_start = scif_mmu_notifier_invalidate_range_start,
 	.invalidate_range_end = scif_mmu_notifier_invalidate_range_end};
 
@@ -88,33 +87,35 @@ static void scif_mmu_notifier_release(struct mmu_notifier *mn,
 
 static void scif_mmu_notifier_invalidate_page(struct mmu_notifier *mn,
 				struct mm_struct *mm,
-				unsigned long address)
+				unsigned long start, unsigned long end)
 {
 	struct endpt *ep;
 	struct rma_mmu_notifier	*mmn;
 	mmn = container_of(mn, struct rma_mmu_notifier, ep_mmu_notifier);
 	ep = mmn->ep;
-	micscif_rma_destroy_tcw(mmn, ep, true, address, PAGE_SIZE);
-	pr_debug("%s address 0x%lx\n", __func__, address);
+	micscif_rma_destroy_tcw(mmn, ep, true, start, PAGE_SIZE);
+	pr_debug("%s address 0x%lx\n", __func__, start);
 	return;
 }
 
-static void scif_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
-				       struct mm_struct *mm,
-				       unsigned long start, unsigned long end)
+static int scif_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
+				       const struct mmu_notifier_range *range)
 {
 	struct endpt *ep;
+	unsigned long start, end;
+	start = range->start;
+	end = range->end;
+
 	struct rma_mmu_notifier	*mmn;
 	mmn = container_of(mn, struct rma_mmu_notifier, ep_mmu_notifier);
 	ep = mmn->ep;
 	micscif_rma_destroy_tcw(mmn, ep, true, (uint64_t)start, (uint64_t)(end - start));
 	pr_debug("%s start=%lx, end=%lx\n", __func__, start, end);
-	return;
+	return 0;
 }
 
 static void scif_mmu_notifier_invalidate_range_end(struct mmu_notifier *mn,
-				     struct mm_struct *mm,
-				     unsigned long start, unsigned long end)
+				     const struct mmu_notifier_range *range)
 {
 	/* Nothing to do here, everything needed was done in invalidate_range_start */
 	pr_debug("%s\n", __func__);

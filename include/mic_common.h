@@ -51,6 +51,8 @@ extern "C" {
 #include <asm/io.h>
 #include <linux/kernel.h>
 #include <linux/mm_types.h>
+#include <linux/mm.h>
+#include <linux/nmi.h>
 #include <linux/jiffies.h>
 #include <linux/timer.h>
 #include <linux/irqflags.h>
@@ -254,6 +256,10 @@ extern "C" {
 #define LINUX_INTERFACE_VERSION "1.0"
 #define WINDOWS_INTERFACE_VERSION "1.0"
 
+
+// OG CTP BVRESAK
+#define page_cache_get(page) get_page(page)
+#define page_cache_release(page) put_page(page)
 typedef enum mic_modes
 {
 	MODE_NONE,

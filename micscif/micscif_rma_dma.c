@@ -823,9 +823,11 @@ error:
 
 #if !defined(WINDOWS) && !defined(CONFIG_PREEMPT)
 static int softlockup_threshold = 60;
-static void avert_softlockup(unsigned long data)
+//static void avert_softlockup(unsigned long data)
+// OG CTP
+static void avert_softlockup(struct timer_list *timer)
 {
-	*(unsigned long*)data = 1;
+	*(struct timer_list *) timer = *(struct timer_list *) 1;
 }
 
 /*
@@ -837,11 +839,13 @@ static void avert_softlockup(unsigned long data)
  * timers are run at softirq context)
  *
  */
-static inline void add_softlockup_timer(struct timer_list *timer, unsigned long *data)
+//static inline void add_softlockup_timer(struct timer_list *timer, unsigned long *data)
+static inline void add_softlockup_timer(struct timer_list *timer)
 {
-	setup_timer(timer, avert_softlockup, (unsigned long) data);
-	timer->expires = jiffies + usecs_to_jiffies(softlockup_threshold * 1000000 / 3);
-	add_timer(timer);
+	// CTP OG
+	timer_setup(timer, avert_softlockup, 0);
+//	timer->expires = jiffies + usecs_to_jiffies(softlockup_threshold * 1000000 / 3);
+//	add_timer(timer);
 }
 
 static inline void del_softlockup_timer(struct timer_list *timer)
@@ -876,7 +880,9 @@ int micscif_rma_list_cpu_copy(struct mic_copy_work *work)
 	unsigned long timer_fired = 0;
 	struct timer_list timer;
 	int cpu = smp_processor_id();
-	add_softlockup_timer(&timer, &timer_fired);
+	// OG CTP BROKEN IFX
+//	add_softlockup_timer(&timer, &timer_fired);
+	add_softlockup_timer(&timer);
 #endif
 
 	remaining_len = work->len;
@@ -894,7 +900,9 @@ int micscif_rma_list_cpu_copy(struct mic_copy_work *work)
 				touch_softlockup_watchdog();
 			else
 				cpu = smp_processor_id();
-			add_softlockup_timer(&timer, &timer_fired);
+			// OG CTP BROEN FIX
+//			add_softlockup_timer(&timer, &timer_fired);
+			add_softlockup_timer(&timer);
 		}
 #endif
 		src_cache_off = src_offset & ~PAGE_MASK;

@@ -38,6 +38,7 @@
 #include <linux/ktime.h>
 #include <linux/sched.h>
 #include <linux/kref.h>
+//#include <arch/x86/include/asm/atomic.h>
 #include <linux/module.h>
 #include "scif.h"
 #include "mic/micscif.h"
@@ -1981,6 +1982,15 @@ retry:
 			}
 		}
 
+	// OG CTP
+		pinned_pages->nr_pages = get_user_pages(
+				current,
+				nr_pages,
+				0,
+				pinned_pages->pages,
+				pinned_pages->vma);
+// OG CTP BRWAK LOOK
+/*
 		pinned_pages->nr_pages = get_user_pages(
 				current,
 				mm,
@@ -1990,6 +2000,7 @@ retry:
 				0,
 				pinned_pages->pages,
 				pinned_pages->vma);
+*/
 		up_write(&mm->mmap_sem);
 		if (nr_pages == pinned_pages->nr_pages) {
 #ifdef RMA_DEBUG
@@ -2436,13 +2447,13 @@ scif_put_pages(struct scif_range *pages)
 	int ret;
 	struct reg_range_t *window = pages->cookie;
 	struct endpt *ep = (struct endpt *)window->ep;
-	if (atomic_read(&(&(ep->ref_count))->refcount) > 0) {
+	if (atomic_read((atomic_t *) &(&(ep->ref_count))->refcount) > 0) {
 		kref_get(&(ep->ref_count));
 	} else {
 		WARN_ON(1);
 	}
 	ret = __scif_put_pages(pages);
-	if (atomic_read(&(&(ep->ref_count))->refcount) > 0) {
+	if (atomic_read((atomic_t *) &(&(ep->ref_count))->refcount) > 0) {
 		kref_put(&(ep->ref_count), scif_ref_rel);
 	} else {
 		//WARN_ON(1);

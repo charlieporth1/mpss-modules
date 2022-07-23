@@ -59,8 +59,6 @@
 #define MASK_MEMFREQ 0xfff
 #define SHIFT_MEMFREQ 16
 
-#define page_cache_get(page) get_page(page)
-#define page_cache_release(page) put_page(page)
 void do_gettimeofday(struct timeval *tv)
 {
 struct timespec64 ts;

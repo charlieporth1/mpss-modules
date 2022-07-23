@@ -1,9 +1,11 @@
-cmd_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := gcc -Wp,-MD,/home/charlieporth1/mpss-modules/micscif/.micscif_debug.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/7/include  -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -Iubuntu/include  -include ./include/linux/compiler_types.h -D__KERNEL__ -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -fno-jump-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wimplicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wno-array-bounds -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -O2 -DBUILD_NUMBER=\"'0'\" -DBUILD_BYWHOM=\"'charlieporth1@max-ubuntu-server'\" -DBUILD_ONDATE=\"'2022-07-23 16:23:28 -0500'\" -DBUILD_SCMVER=\"'e8ef53c4fa26582ac37b5e0101b7451a70263f6c'\" -DBUILD_VERSION=\"'3.8.6-1 (charlieporth1@max-ubuntu-server)'\" -DMIC_IS_K1OM -DCONFIG_MK1OM -DHOST -DUSE_VCONSOLE -D__LINUX_GPL__ -D_MODULE_SCIF_ -I/home/charlieporth1/mpss-modules/include  -DMODULE  -DKBUILD_BASENAME='"micscif_debug"' -DKBUILD_MODNAME='"mic"' -c -o /home/charlieporth1/mpss-modules/micscif/micscif_debug.o /home/charlieporth1/mpss-modules/micscif/micscif_debug.c
+cmd_/home/charlieporth1/mpss-modules/micscif/micscif_rma_dma.o := gcc -Wp,-MD,/home/charlieporth1/mpss-modules/micscif/.micscif_rma_dma.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/7/include  -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -Iubuntu/include  -include ./include/linux/compiler_types.h -D__KERNEL__ -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -fno-jump-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wimplicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wno-array-bounds -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -O2 -DBUILD_NUMBER=\"'0'\" -DBUILD_BYWHOM=\"'charlieporth1@max-ubuntu-server'\" -DBUILD_ONDATE=\"'2022-07-23 16:23:28 -0500'\" -DBUILD_SCMVER=\"'e8ef53c4fa26582ac37b5e0101b7451a70263f6c'\" -DBUILD_VERSION=\"'3.8.6-1 (charlieporth1@max-ubuntu-server)'\" -DMIC_IS_K1OM -DCONFIG_MK1OM -DHOST -DUSE_VCONSOLE -D__LINUX_GPL__ -D_MODULE_SCIF_ -I/home/charlieporth1/mpss-modules/include  -DMODULE  -DKBUILD_BASENAME='"micscif_rma_dma"' -DKBUILD_MODNAME='"mic"' -c -o /home/charlieporth1/mpss-modules/micscif/micscif_rma_dma.o /home/charlieporth1/mpss-modules/micscif/micscif_rma_dma.c
 
-source_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := /home/charlieporth1/mpss-modules/micscif/micscif_debug.c
+source_/home/charlieporth1/mpss-modules/micscif/micscif_rma_dma.o := /home/charlieporth1/mpss-modules/micscif/micscif_rma_dma.c
 
-deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
-    $(wildcard include/config/mmu/notifier.h) \
+deps_/home/charlieporth1/mpss-modules/micscif/micscif_rma_dma.o := \
+    $(wildcard include/config/preempt.h) \
+    $(wildcard include/config/ml1om.h) \
+    $(wildcard include/config/mk1om.h) \
   include/linux/kconfig.h \
     $(wildcard include/config/cpu/big/endian.h) \
     $(wildcard include/config/booger.h) \
@@ -19,6 +21,7 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/retpoline.h) \
     $(wildcard include/config/arch/use/builtin/bswap.h) \
   /home/charlieporth1/mpss-modules/include/mic/micscif.h \
+    $(wildcard include/config/mmu/notifier.h) \
   include/linux/errno.h \
   include/uapi/linux/errno.h \
   arch/x86/include/generated/uapi/asm/errno.h \
@@ -403,7 +406,6 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   arch/x86/include/asm/qrwlock.h \
   include/asm-generic/qrwlock.h \
   include/linux/rwlock.h \
-    $(wildcard include/config/preempt.h) \
   include/linux/spinlock_api_smp.h \
     $(wildcard include/config/inline/spin/lock.h) \
     $(wildcard include/config/inline/spin/lock/bh.h) \
@@ -1256,7 +1258,6 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   /home/charlieporth1/mpss-modules/include/scif.h \
   /home/charlieporth1/mpss-modules/include/mic/micbaseaddressdefine.h \
   /home/charlieporth1/mpss-modules/include/mic/micsboxdefine.h \
-    $(wildcard include/config/mk1om.h) \
   /home/charlieporth1/mpss-modules/include/scif_ioctl.h \
   /home/charlieporth1/mpss-modules/include/mic/micscif_nodeqp.h \
   /home/charlieporth1/mpss-modules/include/mic/micscif_rb.h \
@@ -1267,7 +1268,6 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   /home/charlieporth1/mpss-modules/include/mic/mic_dma_api.h \
   /home/charlieporth1/mpss-modules/include/mic/mic_dma_lib.h \
   /home/charlieporth1/mpss-modules/include/mic/micscif_rma.h \
-    $(wildcard include/config/ml1om.h) \
   include/linux/mmu_notifier.h \
   include/linux/hugetlb.h \
     $(wildcard include/config/arch/enable/hugepage/migration.h) \
@@ -1331,58 +1331,7 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   /home/charlieporth1/mpss-modules/include/mic/micveth_common.h \
   /home/charlieporth1/mpss-modules/include/mic_interrupts.h \
   /home/charlieporth1/mpss-modules/include/mic_common.h \
-  include/linux/proc_fs.h \
-    $(wildcard include/config/proc/pid/arch/status.h) \
-  include/linux/module.h \
-    $(wildcard include/config/modules/tree/lookup.h) \
-    $(wildcard include/config/module/sig.h) \
-    $(wildcard include/config/kallsyms.h) \
-    $(wildcard include/config/event/tracing.h) \
-    $(wildcard include/config/module/unload.h) \
-    $(wildcard include/config/constructors.h) \
-  include/linux/kmod.h \
-  include/linux/umh.h \
-  include/linux/elf.h \
-  arch/x86/include/asm/elf.h \
-  arch/x86/include/asm/fsgsbase.h \
-  arch/x86/include/asm/vdso.h \
-  include/uapi/linux/elf.h \
-  include/uapi/linux/elf-em.h \
-  include/linux/moduleparam.h \
-    $(wildcard include/config/alpha.h) \
-    $(wildcard include/config/ppc64.h) \
-  include/linux/error-injection.h \
-  include/asm-generic/error-injection.h \
-  arch/x86/include/asm/module.h \
-    $(wildcard include/config/unwinder/orc.h) \
-    $(wildcard include/config/m486.h) \
-    $(wildcard include/config/m586.h) \
-    $(wildcard include/config/m586tsc.h) \
-    $(wildcard include/config/m586mmx.h) \
-    $(wildcard include/config/mcore2.h) \
-    $(wildcard include/config/m686.h) \
-    $(wildcard include/config/mpentiumii.h) \
-    $(wildcard include/config/mpentiumiii.h) \
-    $(wildcard include/config/mpentiumm.h) \
-    $(wildcard include/config/mpentium4.h) \
-    $(wildcard include/config/mk6.h) \
-    $(wildcard include/config/mk8.h) \
-    $(wildcard include/config/melan.h) \
-    $(wildcard include/config/mcrusoe.h) \
-    $(wildcard include/config/mefficeon.h) \
-    $(wildcard include/config/mwinchipc6.h) \
-    $(wildcard include/config/mwinchip3d.h) \
-    $(wildcard include/config/mcyrixiii.h) \
-    $(wildcard include/config/mviac3/2.h) \
-    $(wildcard include/config/mviac7.h) \
-    $(wildcard include/config/mgeodegx1.h) \
-    $(wildcard include/config/mgeode/lx.h) \
-  include/asm-generic/module.h \
-    $(wildcard include/config/have/mod/arch/specific.h) \
-    $(wildcard include/config/modules/use/elf/rel.h) \
-    $(wildcard include/config/modules/use/elf/rela.h) \
-  arch/x86/include/asm/orc_types.h \
 
-/home/charlieporth1/mpss-modules/micscif/micscif_debug.o: $(deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o)
+/home/charlieporth1/mpss-modules/micscif/micscif_rma_dma.o: $(deps_/home/charlieporth1/mpss-modules/micscif/micscif_rma_dma.o)
 
-$(deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o):
+$(deps_/home/charlieporth1/mpss-modules/micscif/micscif_rma_dma.o):

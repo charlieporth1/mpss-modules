@@ -341,6 +341,8 @@ mic_dma_lib.o: /home/charlieporth1/mpss-modules/dma/mic_dma_lib.c \
  /home/charlieporth1/mpss-modules/include/mic/micscif_kmem_cache.h \
  /home/charlieporth1/mpss-modules/include/mic/micscif_rma_list.h \
  /home/charlieporth1/mpss-modules/include/mic_common.h \
+ include/linux/nmi.h arch/x86/include/asm/nmi.h include/linux/irq_work.h \
+ arch/x86/include/asm/irq_work.h \
  /home/charlieporth1/mpss-modules/include/mic/bootparams.h \
  /home/charlieporth1/mpss-modules/include/mic/micdboxdefine.h \
  /home/charlieporth1/mpss-modules/include/mic/ringbuffer.h \

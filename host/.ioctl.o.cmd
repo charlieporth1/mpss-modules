@@ -1,4 +1,4 @@
-cmd_/home/charlieporth1/mpss-modules/host/ioctl.o := gcc -Wp,-MD,/home/charlieporth1/mpss-modules/host/.ioctl.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/7/include  -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -Iubuntu/include  -include ./include/linux/compiler_types.h -D__KERNEL__ -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -fno-jump-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wimplicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wno-array-bounds -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -O2 -DBUILD_NUMBER=\"'0'\" -DBUILD_BYWHOM=\"'charlieporth1@max-ubuntu-server'\" -DBUILD_ONDATE=\"'2022-07-22 16:21:14 -0500'\" -DBUILD_SCMVER=\"'e8ef53c4fa26582ac37b5e0101b7451a70263f6c'\" -DBUILD_VERSION=\"'3.8.6-1 (charlieporth1@max-ubuntu-server)'\" -DMIC_IS_K1OM -DCONFIG_MK1OM -DHOST -DUSE_VCONSOLE -D__LINUX_GPL__ -D_MODULE_SCIF_ -I/home/charlieporth1/mpss-modules/include  -DMODULE  -DKBUILD_BASENAME='"ioctl"' -DKBUILD_MODNAME='"mic"' -c -o /home/charlieporth1/mpss-modules/host/ioctl.o /home/charlieporth1/mpss-modules/host/ioctl.c
+cmd_/home/charlieporth1/mpss-modules/host/ioctl.o := gcc -Wp,-MD,/home/charlieporth1/mpss-modules/host/.ioctl.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/7/include  -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -Iubuntu/include  -include ./include/linux/compiler_types.h -D__KERNEL__ -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -fno-jump-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wimplicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wno-array-bounds -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -O2 -DBUILD_NUMBER=\"'0'\" -DBUILD_BYWHOM=\"'charlieporth1@max-ubuntu-server'\" -DBUILD_ONDATE=\"'2022-07-23 16:23:28 -0500'\" -DBUILD_SCMVER=\"'e8ef53c4fa26582ac37b5e0101b7451a70263f6c'\" -DBUILD_VERSION=\"'3.8.6-1 (charlieporth1@max-ubuntu-server)'\" -DMIC_IS_K1OM -DCONFIG_MK1OM -DHOST -DUSE_VCONSOLE -D__LINUX_GPL__ -D_MODULE_SCIF_ -I/home/charlieporth1/mpss-modules/include  -DMODULE  -DKBUILD_BASENAME='"ioctl"' -DKBUILD_MODNAME='"mic"' -c -o /home/charlieporth1/mpss-modules/host/ioctl.o /home/charlieporth1/mpss-modules/host/ioctl.c
 
 source_/home/charlieporth1/mpss-modules/host/ioctl.o := /home/charlieporth1/mpss-modules/host/ioctl.c
 
@@ -623,9 +623,56 @@ deps_/home/charlieporth1/mpss-modules/host/ioctl.o := \
   include/linux/percpu-refcount.h \
   include/linux/kasan.h \
     $(wildcard include/config/kasan/generic.h) \
-  include/linux/semaphore.h \
-  include/linux/kthread.h \
-    $(wildcard include/config/blk/cgroup.h) \
+  include/linux/mm.h \
+    $(wildcard include/config/sysctl.h) \
+    $(wildcard include/config/have/arch/mmap/rnd/bits.h) \
+    $(wildcard include/config/have/arch/mmap/rnd/compat/bits.h) \
+    $(wildcard include/config/arch/uses/high/vma/flags.h) \
+    $(wildcard include/config/arch/has/pkeys.h) \
+    $(wildcard include/config/ppc.h) \
+    $(wildcard include/config/parisc.h) \
+    $(wildcard include/config/ia64.h) \
+    $(wildcard include/config/sparc64.h) \
+    $(wildcard include/config/stack/growsup.h) \
+    $(wildcard include/config/shmem.h) \
+    $(wildcard include/config/arch/has/pte/devmap.h) \
+    $(wildcard include/config/dev/pagemap/ops.h) \
+    $(wildcard include/config/device/private.h) \
+    $(wildcard include/config/pci/p2pdma.h) \
+    $(wildcard include/config/debug/vm/rb.h) \
+    $(wildcard include/config/page/poisoning.h) \
+    $(wildcard include/config/init/on/alloc/default/on.h) \
+    $(wildcard include/config/init/on/free/default/on.h) \
+    $(wildcard include/config/debug/pagealloc.h) \
+    $(wildcard include/config/arch/has/set/direct/map.h) \
+    $(wildcard include/config/hibernation.h) \
+    $(wildcard include/config/hugetlbfs.h) \
+  include/linux/bit_spinlock.h \
+  include/linux/shrinker.h \
+  include/linux/resource.h \
+  include/uapi/linux/resource.h \
+  arch/x86/include/generated/uapi/asm/resource.h \
+  include/asm-generic/resource.h \
+  include/uapi/asm-generic/resource.h \
+  include/linux/page_ext.h \
+  include/linux/stacktrace.h \
+    $(wildcard include/config/stacktrace.h) \
+    $(wildcard include/config/arch/stackwalk.h) \
+    $(wildcard include/config/have/reliable/stacktrace.h) \
+  include/linux/stackdepot.h \
+  include/linux/page_ref.h \
+    $(wildcard include/config/debug/page/ref.h) \
+  include/linux/memremap.h \
+  include/linux/ioport.h \
+    $(wildcard include/config/io/strict/devmem.h) \
+  include/linux/sizes.h \
+  arch/x86/include/asm/pgtable.h \
+    $(wildcard include/config/debug/wx.h) \
+    $(wildcard include/config/have/arch/transparent/hugepage/pud.h) \
+    $(wildcard include/config/have/arch/soft/dirty.h) \
+    $(wildcard include/config/arch/enable/thp/migration.h) \
+  arch/x86/include/asm/fpu/xstate.h \
+  include/linux/uaccess.h \
   include/linux/sched.h \
     $(wildcard include/config/sched/info.h) \
     $(wildcard include/config/schedstats.h) \
@@ -638,6 +685,7 @@ deps_/home/charlieporth1/mpss-modules/host/ioctl.o := \
     $(wildcard include/config/psi.h) \
     $(wildcard include/config/compat/brk.h) \
     $(wildcard include/config/cgroups.h) \
+    $(wildcard include/config/blk/cgroup.h) \
     $(wildcard include/config/arch/has/scaled/cputime.h) \
     $(wildcard include/config/posix/cputimers.h) \
     $(wildcard include/config/keys.h) \
@@ -712,11 +760,6 @@ deps_/home/charlieporth1/mpss-modules/host/ioctl.o := \
   arch/x86/include/generated/asm/unistd_32_ia32.h \
   include/asm-generic/seccomp.h \
   include/uapi/linux/unistd.h \
-  include/linux/resource.h \
-  include/uapi/linux/resource.h \
-  arch/x86/include/generated/uapi/asm/resource.h \
-  include/asm-generic/resource.h \
-  include/uapi/asm-generic/resource.h \
   include/linux/latencytop.h \
   include/linux/sched/prio.h \
   include/linux/sched/types.h \
@@ -734,144 +777,10 @@ deps_/home/charlieporth1/mpss-modules/host/ioctl.o := \
     $(wildcard include/config/posix/timers.h) \
   include/linux/alarmtimer.h \
   include/uapi/linux/rseq.h \
-  include/linux/delay.h \
-  arch/x86/include/asm/delay.h \
-  include/asm-generic/delay.h \
-  include/linux/pci.h \
-    $(wildcard include/config/pci/iov.h) \
-    $(wildcard include/config/pcieaer.h) \
-    $(wildcard include/config/pcieaspm.h) \
-    $(wildcard include/config/hotplug/pci/pcie.h) \
-    $(wildcard include/config/pcie/ptm.h) \
-    $(wildcard include/config/pci/ats.h) \
-    $(wildcard include/config/pci/pri.h) \
-    $(wildcard include/config/pci/pasid.h) \
-    $(wildcard include/config/pci/p2pdma.h) \
-    $(wildcard include/config/pci/domains/generic.h) \
-    $(wildcard include/config/pcieportbus.h) \
-    $(wildcard include/config/pci/domains.h) \
-    $(wildcard include/config/pci/quirks.h) \
-    $(wildcard include/config/hibernate/callbacks.h) \
-    $(wildcard include/config/acpi/mcfg.h) \
-    $(wildcard include/config/hotplug/pci.h) \
-    $(wildcard include/config/of.h) \
-    $(wildcard include/config/eeh.h) \
-  include/linux/mod_devicetable.h \
-  include/linux/uuid.h \
-  include/uapi/linux/uuid.h \
-  include/linux/ioport.h \
-    $(wildcard include/config/io/strict/devmem.h) \
-  include/linux/kobject.h \
-    $(wildcard include/config/uevent/helper.h) \
-    $(wildcard include/config/debug/kobject/release.h) \
-  include/linux/sysfs.h \
-  include/linux/kernfs.h \
-    $(wildcard include/config/kernfs.h) \
-  include/linux/idr.h \
-  include/linux/radix-tree.h \
-  include/linux/xarray.h \
-    $(wildcard include/config/xarray/multi.h) \
-  include/linux/kconfig.h \
-  include/linux/kobject_ns.h \
-  include/linux/stat.h \
-  arch/x86/include/uapi/asm/stat.h \
-  include/uapi/linux/stat.h \
-  include/linux/kref.h \
-  include/linux/device.h \
-    $(wildcard include/config/debug/devres.h) \
-    $(wildcard include/config/generic/msi/irq/domain.h) \
-    $(wildcard include/config/pinctrl.h) \
-    $(wildcard include/config/generic/msi/irq.h) \
-    $(wildcard include/config/dma/declare/coherent.h) \
-    $(wildcard include/config/dma/cma.h) \
-    $(wildcard include/config/arch/has/sync/dma/for/device.h) \
-    $(wildcard include/config/arch/has/sync/dma/for/cpu.h) \
-    $(wildcard include/config/arch/has/sync/dma/for/cpu/all.h) \
-    $(wildcard include/config/devtmpfs.h) \
-    $(wildcard include/config/sysfs/deprecated.h) \
-  include/linux/klist.h \
-  include/linux/pm.h \
-    $(wildcard include/config/vt/console/sleep.h) \
-    $(wildcard include/config/pm.h) \
-    $(wildcard include/config/pm/clk.h) \
-    $(wildcard include/config/pm/generic/domains.h) \
-  include/linux/ratelimit.h \
-  arch/x86/include/asm/device.h \
-    $(wildcard include/config/intel/iommu.h) \
-    $(wildcard include/config/amd/iommu.h) \
-    $(wildcard include/config/sta2x11.h) \
-    $(wildcard include/config/x86/dev/dma/ops.h) \
-  include/linux/pm_wakeup.h \
-  include/linux/interrupt.h \
-    $(wildcard include/config/irq/forced/threading.h) \
-    $(wildcard include/config/generic/irq/probe.h) \
-    $(wildcard include/config/irq/timings.h) \
-  include/linux/irqreturn.h \
-  include/linux/irqnr.h \
-  include/uapi/linux/irqnr.h \
-  arch/x86/include/asm/irq.h \
-  arch/x86/include/asm/sections.h \
-  include/asm-generic/sections.h \
-  arch/x86/include/asm/extable.h \
-  include/linux/io.h \
-    $(wildcard include/config/have/arch/huge/vmap.h) \
-  include/linux/resource_ext.h \
-  include/uapi/linux/pci.h \
-  include/uapi/linux/pci_regs.h \
-  include/linux/pci_ids.h \
-  include/linux/dmapool.h \
-    $(wildcard include/config/has/dma.h) \
-  include/linux/scatterlist.h \
-    $(wildcard include/config/need/sg/dma/length.h) \
-    $(wildcard include/config/debug/sg.h) \
-    $(wildcard include/config/sgl/alloc.h) \
-    $(wildcard include/config/arch/no/sg/chain.h) \
-    $(wildcard include/config/sg/pool.h) \
-  include/linux/mm.h \
-    $(wildcard include/config/sysctl.h) \
-    $(wildcard include/config/have/arch/mmap/rnd/bits.h) \
-    $(wildcard include/config/have/arch/mmap/rnd/compat/bits.h) \
-    $(wildcard include/config/arch/uses/high/vma/flags.h) \
-    $(wildcard include/config/arch/has/pkeys.h) \
-    $(wildcard include/config/ppc.h) \
-    $(wildcard include/config/parisc.h) \
-    $(wildcard include/config/ia64.h) \
-    $(wildcard include/config/sparc64.h) \
-    $(wildcard include/config/stack/growsup.h) \
-    $(wildcard include/config/shmem.h) \
-    $(wildcard include/config/arch/has/pte/devmap.h) \
-    $(wildcard include/config/dev/pagemap/ops.h) \
-    $(wildcard include/config/device/private.h) \
-    $(wildcard include/config/debug/vm/rb.h) \
-    $(wildcard include/config/page/poisoning.h) \
-    $(wildcard include/config/init/on/alloc/default/on.h) \
-    $(wildcard include/config/init/on/free/default/on.h) \
-    $(wildcard include/config/debug/pagealloc.h) \
-    $(wildcard include/config/arch/has/set/direct/map.h) \
-    $(wildcard include/config/hibernation.h) \
-    $(wildcard include/config/hugetlbfs.h) \
-  include/linux/bit_spinlock.h \
-  include/linux/shrinker.h \
-  include/linux/page_ext.h \
-  include/linux/stacktrace.h \
-    $(wildcard include/config/stacktrace.h) \
-    $(wildcard include/config/arch/stackwalk.h) \
-    $(wildcard include/config/have/reliable/stacktrace.h) \
-  include/linux/stackdepot.h \
-  include/linux/page_ref.h \
-    $(wildcard include/config/debug/page/ref.h) \
-  include/linux/memremap.h \
-  include/linux/sizes.h \
-  arch/x86/include/asm/pgtable.h \
-    $(wildcard include/config/debug/wx.h) \
-    $(wildcard include/config/have/arch/transparent/hugepage/pud.h) \
-    $(wildcard include/config/have/arch/soft/dirty.h) \
-    $(wildcard include/config/arch/enable/thp/migration.h) \
-  arch/x86/include/asm/fpu/xstate.h \
-  include/linux/uaccess.h \
   arch/x86/include/asm/uaccess.h \
     $(wildcard include/config/x86/intel/usercopy.h) \
   arch/x86/include/asm/smap.h \
+  arch/x86/include/asm/extable.h \
   arch/x86/include/asm/uaccess_64.h \
   arch/x86/include/asm/user.h \
   arch/x86/include/asm/user_64.h \
@@ -880,6 +789,7 @@ deps_/home/charlieporth1/mpss-modules/host/ioctl.o := \
   arch/x86/include/asm/pgtable_64.h \
   arch/x86/include/asm/pgtable-invert.h \
   include/asm-generic/pgtable.h \
+    $(wildcard include/config/have/arch/huge/vmap.h) \
     $(wildcard include/config/x86/espfix64.h) \
   include/linux/huge_mm.h \
   include/linux/sched/coredump.h \
@@ -913,7 +823,15 @@ deps_/home/charlieporth1/mpss-modules/host/ioctl.o := \
   include/linux/hash.h \
     $(wildcard include/config/have/arch/hash.h) \
   include/linux/path.h \
+  include/linux/stat.h \
+  arch/x86/include/uapi/asm/stat.h \
+  include/uapi/linux/stat.h \
   include/linux/list_lru.h \
+  include/linux/radix-tree.h \
+  include/linux/xarray.h \
+    $(wildcard include/config/xarray/multi.h) \
+  include/linux/kconfig.h \
+  include/linux/semaphore.h \
   include/linux/fcntl.h \
     $(wildcard include/config/arch/32bit/off/t.h) \
   include/uapi/linux/fcntl.h \
@@ -925,6 +843,8 @@ deps_/home/charlieporth1/mpss-modules/host/ioctl.o := \
   include/linux/rcuwait.h \
   include/linux/rcu_sync.h \
   include/linux/delayed_call.h \
+  include/linux/uuid.h \
+  include/uapi/linux/uuid.h \
   include/linux/errseq.h \
   include/linux/ioprio.h \
   include/linux/sched/rt.h \
@@ -948,6 +868,98 @@ deps_/home/charlieporth1/mpss-modules/host/ioctl.o := \
   include/linux/vm_event_item.h \
     $(wildcard include/config/memory/balloon.h) \
     $(wildcard include/config/balloon/compaction.h) \
+  include/linux/nmi.h \
+    $(wildcard include/config/have/nmi/watchdog.h) \
+    $(wildcard include/config/lockup/detector.h) \
+    $(wildcard include/config/softlockup/detector.h) \
+    $(wildcard include/config/hardlockup/detector.h) \
+    $(wildcard include/config/hardlockup/detector/perf.h) \
+    $(wildcard include/config/hardlockup/check/timestamp.h) \
+    $(wildcard include/config/have/acpi/apei/nmi.h) \
+  arch/x86/include/asm/irq.h \
+  arch/x86/include/asm/nmi.h \
+  include/linux/irq_work.h \
+    $(wildcard include/config/irq/work.h) \
+  arch/x86/include/asm/irq_work.h \
+  include/linux/pm.h \
+    $(wildcard include/config/vt/console/sleep.h) \
+    $(wildcard include/config/pm.h) \
+    $(wildcard include/config/pm/clk.h) \
+    $(wildcard include/config/pm/generic/domains.h) \
+  include/linux/kthread.h \
+  include/linux/delay.h \
+  arch/x86/include/asm/delay.h \
+  include/asm-generic/delay.h \
+  include/linux/pci.h \
+    $(wildcard include/config/pci/iov.h) \
+    $(wildcard include/config/pcieaer.h) \
+    $(wildcard include/config/pcieaspm.h) \
+    $(wildcard include/config/hotplug/pci/pcie.h) \
+    $(wildcard include/config/pcie/ptm.h) \
+    $(wildcard include/config/pci/ats.h) \
+    $(wildcard include/config/pci/pri.h) \
+    $(wildcard include/config/pci/pasid.h) \
+    $(wildcard include/config/pci/domains/generic.h) \
+    $(wildcard include/config/pcieportbus.h) \
+    $(wildcard include/config/pci/domains.h) \
+    $(wildcard include/config/pci/quirks.h) \
+    $(wildcard include/config/hibernate/callbacks.h) \
+    $(wildcard include/config/acpi/mcfg.h) \
+    $(wildcard include/config/hotplug/pci.h) \
+    $(wildcard include/config/of.h) \
+    $(wildcard include/config/eeh.h) \
+  include/linux/mod_devicetable.h \
+  include/linux/kobject.h \
+    $(wildcard include/config/uevent/helper.h) \
+    $(wildcard include/config/debug/kobject/release.h) \
+  include/linux/sysfs.h \
+  include/linux/kernfs.h \
+    $(wildcard include/config/kernfs.h) \
+  include/linux/idr.h \
+  include/linux/kobject_ns.h \
+  include/linux/kref.h \
+  include/linux/device.h \
+    $(wildcard include/config/debug/devres.h) \
+    $(wildcard include/config/generic/msi/irq/domain.h) \
+    $(wildcard include/config/pinctrl.h) \
+    $(wildcard include/config/generic/msi/irq.h) \
+    $(wildcard include/config/dma/declare/coherent.h) \
+    $(wildcard include/config/dma/cma.h) \
+    $(wildcard include/config/arch/has/sync/dma/for/device.h) \
+    $(wildcard include/config/arch/has/sync/dma/for/cpu.h) \
+    $(wildcard include/config/arch/has/sync/dma/for/cpu/all.h) \
+    $(wildcard include/config/devtmpfs.h) \
+    $(wildcard include/config/sysfs/deprecated.h) \
+  include/linux/klist.h \
+  include/linux/ratelimit.h \
+  arch/x86/include/asm/device.h \
+    $(wildcard include/config/intel/iommu.h) \
+    $(wildcard include/config/amd/iommu.h) \
+    $(wildcard include/config/sta2x11.h) \
+    $(wildcard include/config/x86/dev/dma/ops.h) \
+  include/linux/pm_wakeup.h \
+  include/linux/interrupt.h \
+    $(wildcard include/config/irq/forced/threading.h) \
+    $(wildcard include/config/generic/irq/probe.h) \
+    $(wildcard include/config/irq/timings.h) \
+  include/linux/irqreturn.h \
+  include/linux/irqnr.h \
+  include/uapi/linux/irqnr.h \
+  arch/x86/include/asm/sections.h \
+  include/asm-generic/sections.h \
+  include/linux/io.h \
+  include/linux/resource_ext.h \
+  include/uapi/linux/pci.h \
+  include/uapi/linux/pci_regs.h \
+  include/linux/pci_ids.h \
+  include/linux/dmapool.h \
+    $(wildcard include/config/has/dma.h) \
+  include/linux/scatterlist.h \
+    $(wildcard include/config/need/sg/dma/length.h) \
+    $(wildcard include/config/debug/sg.h) \
+    $(wildcard include/config/sgl/alloc.h) \
+    $(wildcard include/config/arch/no/sg/chain.h) \
+    $(wildcard include/config/sg/pool.h) \
   arch/x86/include/asm/pci.h \
     $(wildcard include/config/pci/msi/irq/domain.h) \
     $(wildcard include/config/vmd.h) \

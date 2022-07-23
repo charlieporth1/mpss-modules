@@ -1,9 +1,8 @@
-cmd_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := gcc -Wp,-MD,/home/charlieporth1/mpss-modules/micscif/.micscif_debug.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/7/include  -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -Iubuntu/include  -include ./include/linux/compiler_types.h -D__KERNEL__ -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -fno-jump-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wimplicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wno-array-bounds -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -O2 -DBUILD_NUMBER=\"'0'\" -DBUILD_BYWHOM=\"'charlieporth1@max-ubuntu-server'\" -DBUILD_ONDATE=\"'2022-07-23 16:23:28 -0500'\" -DBUILD_SCMVER=\"'e8ef53c4fa26582ac37b5e0101b7451a70263f6c'\" -DBUILD_VERSION=\"'3.8.6-1 (charlieporth1@max-ubuntu-server)'\" -DMIC_IS_K1OM -DCONFIG_MK1OM -DHOST -DUSE_VCONSOLE -D__LINUX_GPL__ -D_MODULE_SCIF_ -I/home/charlieporth1/mpss-modules/include  -DMODULE  -DKBUILD_BASENAME='"micscif_debug"' -DKBUILD_MODNAME='"mic"' -c -o /home/charlieporth1/mpss-modules/micscif/micscif_debug.o /home/charlieporth1/mpss-modules/micscif/micscif_debug.c
+cmd_/home/charlieporth1/mpss-modules/host/vhost/mic_blk.o := gcc -Wp,-MD,/home/charlieporth1/mpss-modules/host/vhost/.mic_blk.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/7/include  -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -Iubuntu/include  -include ./include/linux/compiler_types.h -D__KERNEL__ -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -fno-jump-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wimplicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wno-array-bounds -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -O2 -DBUILD_NUMBER=\"'0'\" -DBUILD_BYWHOM=\"'charlieporth1@max-ubuntu-server'\" -DBUILD_ONDATE=\"'2022-07-23 16:23:28 -0500'\" -DBUILD_SCMVER=\"'e8ef53c4fa26582ac37b5e0101b7451a70263f6c'\" -DBUILD_VERSION=\"'3.8.6-1 (charlieporth1@max-ubuntu-server)'\" -DMIC_IS_K1OM -DCONFIG_MK1OM -DHOST -DUSE_VCONSOLE -D__LINUX_GPL__ -D_MODULE_SCIF_ -I/home/charlieporth1/mpss-modules/include  -DMODULE  -DKBUILD_BASENAME='"mic_blk"' -DKBUILD_MODNAME='"mic"' -c -o /home/charlieporth1/mpss-modules/host/vhost/mic_blk.o /home/charlieporth1/mpss-modules/host/vhost/mic_blk.c
 
-source_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := /home/charlieporth1/mpss-modules/micscif/micscif_debug.c
+source_/home/charlieporth1/mpss-modules/host/vhost/mic_blk.o := /home/charlieporth1/mpss-modules/host/vhost/mic_blk.c
 
-deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
-    $(wildcard include/config/mmu/notifier.h) \
+deps_/home/charlieporth1/mpss-modules/host/vhost/mic_blk.o := \
   include/linux/kconfig.h \
     $(wildcard include/config/cpu/big/endian.h) \
     $(wildcard include/config/booger.h) \
@@ -18,22 +17,51 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/arm64.h) \
     $(wildcard include/config/retpoline.h) \
     $(wildcard include/config/arch/use/builtin/bswap.h) \
-  /home/charlieporth1/mpss-modules/include/mic/micscif.h \
-  include/linux/errno.h \
-  include/uapi/linux/errno.h \
-  arch/x86/include/generated/uapi/asm/errno.h \
-  include/uapi/asm-generic/errno.h \
-  include/uapi/asm-generic/errno-base.h \
-  include/linux/hardirq.h \
-    $(wildcard include/config/tiny/rcu.h) \
-  include/linux/preempt.h \
-    $(wildcard include/config/preempt/count.h) \
-    $(wildcard include/config/debug/preempt.h) \
-    $(wildcard include/config/trace/preempt/toggle.h) \
-    $(wildcard include/config/preemption.h) \
-    $(wildcard include/config/preempt/notifiers.h) \
-  include/linux/linkage.h \
+  include/generated/uapi/linux/version.h \
+  include/linux/compat.h \
+    $(wildcard include/config/compat.h) \
+    $(wildcard include/config/arch/has/syscall/wrapper.h) \
+    $(wildcard include/config/x86/x32/abi.h) \
+    $(wildcard include/config/compat/old/sigaction.h) \
+    $(wildcard include/config/hardened/usercopy.h) \
+    $(wildcard include/config/odd/rt/sigaction.h) \
+    $(wildcard include/config/mmu.h) \
+  include/linux/types.h \
+    $(wildcard include/config/have/uid16.h) \
+    $(wildcard include/config/uid16.h) \
+    $(wildcard include/config/arch/dma/addr/t/64bit.h) \
+    $(wildcard include/config/phys/addr/t/64bit.h) \
+    $(wildcard include/config/64bit.h) \
+  include/uapi/linux/types.h \
+  arch/x86/include/generated/uapi/asm/types.h \
+  include/uapi/asm-generic/types.h \
+  include/asm-generic/int-ll64.h \
+  include/uapi/asm-generic/int-ll64.h \
+  arch/x86/include/uapi/asm/bitsperlong.h \
+  include/asm-generic/bitsperlong.h \
+  include/uapi/asm-generic/bitsperlong.h \
+  include/uapi/linux/posix_types.h \
+  include/linux/stddef.h \
+  include/uapi/linux/stddef.h \
   include/linux/compiler_types.h \
+  arch/x86/include/asm/posix_types.h \
+    $(wildcard include/config/x86/32.h) \
+  arch/x86/include/uapi/asm/posix_types_64.h \
+  include/uapi/asm-generic/posix_types.h \
+  include/linux/time.h \
+    $(wildcard include/config/arch/uses/gettimeoffset.h) \
+  include/linux/cache.h \
+    $(wildcard include/config/smp.h) \
+    $(wildcard include/config/arch/has/cache/line/size.h) \
+  include/uapi/linux/kernel.h \
+  include/uapi/linux/sysinfo.h \
+  include/linux/const.h \
+  include/uapi/linux/const.h \
+  arch/x86/include/asm/cache.h \
+    $(wildcard include/config/x86/l1/cache/shift.h) \
+    $(wildcard include/config/x86/internode/cache/shift.h) \
+    $(wildcard include/config/x86/vsmp.h) \
+  include/linux/linkage.h \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/modversions.h) \
@@ -48,30 +76,8 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/stack/validation.h) \
     $(wildcard include/config/debug/entry.h) \
     $(wildcard include/config/kasan.h) \
-  include/uapi/linux/types.h \
-  arch/x86/include/generated/uapi/asm/types.h \
-  include/uapi/asm-generic/types.h \
-  include/asm-generic/int-ll64.h \
-  include/uapi/asm-generic/int-ll64.h \
-  arch/x86/include/uapi/asm/bitsperlong.h \
-  include/asm-generic/bitsperlong.h \
-    $(wildcard include/config/64bit.h) \
-  include/uapi/asm-generic/bitsperlong.h \
-  include/uapi/linux/posix_types.h \
-  include/linux/stddef.h \
-  include/uapi/linux/stddef.h \
-  arch/x86/include/asm/posix_types.h \
-    $(wildcard include/config/x86/32.h) \
-  arch/x86/include/uapi/asm/posix_types_64.h \
-  include/uapi/asm-generic/posix_types.h \
   arch/x86/include/asm/barrier.h \
   arch/x86/include/asm/alternative.h \
-    $(wildcard include/config/smp.h) \
-  include/linux/types.h \
-    $(wildcard include/config/have/uid16.h) \
-    $(wildcard include/config/uid16.h) \
-    $(wildcard include/config/arch/dma/addr/t/64bit.h) \
-    $(wildcard include/config/phys/addr/t/64bit.h) \
   arch/x86/include/asm/asm.h \
   arch/x86/include/asm/nops.h \
     $(wildcard include/config/mk7.h) \
@@ -81,17 +87,25 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   include/linux/kasan-checks.h \
   arch/x86/include/asm/linkage.h \
     $(wildcard include/config/x86/alignment/16.h) \
+  include/linux/seqlock.h \
+    $(wildcard include/config/debug/lock/alloc.h) \
+  include/linux/spinlock.h \
+    $(wildcard include/config/debug/spinlock.h) \
+    $(wildcard include/config/preemption.h) \
+  include/linux/typecheck.h \
+  include/linux/preempt.h \
+    $(wildcard include/config/preempt/count.h) \
+    $(wildcard include/config/debug/preempt.h) \
+    $(wildcard include/config/trace/preempt/toggle.h) \
+    $(wildcard include/config/preempt/notifiers.h) \
   include/linux/list.h \
     $(wildcard include/config/debug/list.h) \
   include/linux/poison.h \
     $(wildcard include/config/illegal/pointer/value.h) \
     $(wildcard include/config/page/poisoning/zero.h) \
-  include/linux/const.h \
-  include/uapi/linux/const.h \
   include/linux/kernel.h \
     $(wildcard include/config/preempt/voluntary.h) \
     $(wildcard include/config/debug/atomic/sleep.h) \
-    $(wildcard include/config/mmu.h) \
     $(wildcard include/config/prove/locking.h) \
     $(wildcard include/config/arch/has/refcount.h) \
     $(wildcard include/config/panic/timeout.h) \
@@ -140,7 +154,6 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   include/linux/log2.h \
     $(wildcard include/config/arch/has/ilog2/u32.h) \
     $(wildcard include/config/arch/has/ilog2/u64.h) \
-  include/linux/typecheck.h \
   include/linux/printk.h \
     $(wildcard include/config/message/loglevel/default.h) \
     $(wildcard include/config/console/loglevel/default.h) \
@@ -154,14 +167,6 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/strict/kernel/rwx.h) \
     $(wildcard include/config/strict/module/rwx.h) \
   include/linux/kern_levels.h \
-  include/linux/cache.h \
-    $(wildcard include/config/arch/has/cache/line/size.h) \
-  include/uapi/linux/kernel.h \
-  include/uapi/linux/sysinfo.h \
-  arch/x86/include/asm/cache.h \
-    $(wildcard include/config/x86/l1/cache/shift.h) \
-    $(wildcard include/config/x86/internode/cache/shift.h) \
-    $(wildcard include/config/x86/vsmp.h) \
   include/linux/dynamic_debug.h \
     $(wildcard include/config/jump/label.h) \
   include/linux/jump_label.h \
@@ -184,7 +189,6 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   include/linux/thread_info.h \
     $(wildcard include/config/thread/info/in/task.h) \
     $(wildcard include/config/have/arch/within/stack/frames.h) \
-    $(wildcard include/config/hardened/usercopy.h) \
   include/linux/bug.h \
     $(wildcard include/config/generic/bug.h) \
     $(wildcard include/config/bug/on/data/corruption.h) \
@@ -199,11 +203,15 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/arch/supports/int128.h) \
   include/uapi/linux/time.h \
   include/uapi/linux/time_types.h \
+  include/linux/errno.h \
+  include/uapi/linux/errno.h \
+  arch/x86/include/generated/uapi/asm/errno.h \
+  include/uapi/asm-generic/errno.h \
+  include/uapi/asm-generic/errno-base.h \
   arch/x86/include/asm/current.h \
   arch/x86/include/asm/thread_info.h \
     $(wildcard include/config/vm86.h) \
     $(wildcard include/config/frame/pointer.h) \
-    $(wildcard include/config/compat.h) \
     $(wildcard include/config/ia32/emulation.h) \
   arch/x86/include/asm/page.h \
   arch/x86/include/asm/page_types.h \
@@ -328,74 +336,14 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/preempt/tracer.h) \
     $(wildcard include/config/trace/irqflags/support.h) \
   arch/x86/include/asm/irqflags.h \
-    $(wildcard include/config/debug/lock/alloc.h) \
-  include/linux/lockdep.h \
-    $(wildcard include/config/lockdep.h) \
-    $(wildcard include/config/lock/stat.h) \
-  include/linux/ftrace_irq.h \
-    $(wildcard include/config/ftrace/nmi/enter.h) \
-    $(wildcard include/config/hwlat/tracer.h) \
-  include/linux/vtime.h \
-    $(wildcard include/config/virt/cpu/accounting/native.h) \
-    $(wildcard include/config/virt/cpu/accounting/gen.h) \
-    $(wildcard include/config/virt/cpu/accounting.h) \
-    $(wildcard include/config/irq/time/accounting.h) \
-  include/linux/context_tracking_state.h \
-    $(wildcard include/config/context/tracking.h) \
-  include/linux/percpu.h \
-    $(wildcard include/config/need/per/cpu/embed/first/chunk.h) \
-    $(wildcard include/config/need/per/cpu/page/first/chunk.h) \
-  include/linux/mmdebug.h \
-    $(wildcard include/config/debug/vm.h) \
-    $(wildcard include/config/debug/vm/pgflags.h) \
-  include/linux/smp.h \
-    $(wildcard include/config/up/late/init.h) \
-  include/linux/llist.h \
-    $(wildcard include/config/arch/have/nmi/safe/cmpxchg.h) \
-  arch/x86/include/asm/smp.h \
-    $(wildcard include/config/x86/local/apic.h) \
-    $(wildcard include/config/x86/io/apic.h) \
-    $(wildcard include/config/debug/nmi/selftest.h) \
-  arch/x86/include/asm/mpspec.h \
-    $(wildcard include/config/eisa.h) \
-    $(wildcard include/config/x86/mpparse.h) \
-  arch/x86/include/asm/mpspec_def.h \
-  arch/x86/include/asm/x86_init.h \
-  arch/x86/include/asm/apicdef.h \
-  arch/x86/include/asm/apic.h \
-    $(wildcard include/config/x86/x2apic.h) \
-  arch/x86/include/asm/fixmap.h \
-    $(wildcard include/config/provide/ohci1394/dma/init.h) \
-    $(wildcard include/config/pci/mmconfig.h) \
-    $(wildcard include/config/x86/intel/mid.h) \
-    $(wildcard include/config/acpi/apei/ghes.h) \
-    $(wildcard include/config/intel/txt.h) \
-  arch/x86/include/asm/acpi.h \
-    $(wildcard include/config/acpi/apei.h) \
-    $(wildcard include/config/acpi.h) \
-    $(wildcard include/config/acpi/numa.h) \
-  include/acpi/pdc_intel.h \
-  arch/x86/include/asm/numa.h \
-    $(wildcard include/config/numa.h) \
-    $(wildcard include/config/numa/emu.h) \
-  include/linux/nodemask.h \
-    $(wildcard include/config/highmem.h) \
-  include/linux/numa.h \
-    $(wildcard include/config/nodes/shift.h) \
-  arch/x86/include/asm/topology.h \
-    $(wildcard include/config/sched/mc/prio.h) \
-  include/asm-generic/topology.h \
-    $(wildcard include/config/need/multiple/nodes.h) \
-    $(wildcard include/config/have/memoryless/nodes.h) \
-  arch/x86/include/asm/mmu.h \
-    $(wildcard include/config/modify/ldt/syscall.h) \
-  include/linux/spinlock.h \
-    $(wildcard include/config/debug/spinlock.h) \
   include/linux/bottom_half.h \
   arch/x86/include/generated/asm/mmiowb.h \
   include/asm-generic/mmiowb.h \
     $(wildcard include/config/mmiowb.h) \
   include/linux/spinlock_types.h \
+  include/linux/lockdep.h \
+    $(wildcard include/config/lockdep.h) \
+    $(wildcard include/config/lock/stat.h) \
   include/linux/rwlock_types.h \
   arch/x86/include/asm/spinlock.h \
   arch/x86/include/asm/qspinlock.h \
@@ -435,15 +383,213 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/inline/write/unlock/irq.h) \
     $(wildcard include/config/inline/read/unlock/irqrestore.h) \
     $(wildcard include/config/inline/write/unlock/irqrestore.h) \
-  include/linux/rwsem.h \
-    $(wildcard include/config/rwsem/spin/on/owner.h) \
-    $(wildcard include/config/debug/rwsems.h) \
-  include/linux/osq_lock.h \
+  include/linux/time32.h \
+  include/linux/timex.h \
+  include/uapi/linux/timex.h \
+  include/uapi/linux/param.h \
+  arch/x86/include/generated/uapi/asm/param.h \
+  include/asm-generic/param.h \
+    $(wildcard include/config/hz.h) \
+  include/uapi/asm-generic/param.h \
+  arch/x86/include/asm/timex.h \
+  arch/x86/include/asm/tsc.h \
+    $(wildcard include/config/x86/tsc.h) \
+  include/linux/stat.h \
+  arch/x86/include/uapi/asm/stat.h \
+  include/uapi/linux/stat.h \
+  include/linux/uidgid.h \
+    $(wildcard include/config/multiuser.h) \
+    $(wildcard include/config/user/ns.h) \
+  include/linux/highuid.h \
+  include/linux/sem.h \
+    $(wildcard include/config/sysvipc.h) \
+  include/uapi/linux/sem.h \
+  include/linux/ipc.h \
+  include/linux/rhashtable-types.h \
   include/linux/mutex.h \
     $(wildcard include/config/mutex/spin/on/owner.h) \
     $(wildcard include/config/debug/mutexes.h) \
+  include/linux/osq_lock.h \
   include/linux/debug_locks.h \
     $(wildcard include/config/debug/locking/api/selftests.h) \
+  include/linux/workqueue.h \
+    $(wildcard include/config/debug/objects/work.h) \
+    $(wildcard include/config/freezer.h) \
+    $(wildcard include/config/sysfs.h) \
+    $(wildcard include/config/wq/watchdog.h) \
+  include/linux/timer.h \
+    $(wildcard include/config/debug/objects/timers.h) \
+    $(wildcard include/config/preempt/rt.h) \
+    $(wildcard include/config/no/hz/common.h) \
+  include/linux/ktime.h \
+  include/linux/jiffies.h \
+  include/generated/timeconst.h \
+  include/linux/timekeeping.h \
+  include/linux/timekeeping32.h \
+  include/linux/debugobjects.h \
+    $(wildcard include/config/debug/objects.h) \
+    $(wildcard include/config/debug/objects/free.h) \
+  include/linux/rcupdate.h \
+    $(wildcard include/config/preempt/rcu.h) \
+    $(wildcard include/config/rcu/stall/common.h) \
+    $(wildcard include/config/no/hz/full.h) \
+    $(wildcard include/config/rcu/nocb/cpu.h) \
+    $(wildcard include/config/tasks/rcu.h) \
+    $(wildcard include/config/tree/rcu.h) \
+    $(wildcard include/config/tiny/rcu.h) \
+    $(wildcard include/config/debug/objects/rcu/head.h) \
+    $(wildcard include/config/prove/rcu.h) \
+    $(wildcard include/config/rcu/boost.h) \
+    $(wildcard include/config/arch/weak/release/acquire.h) \
+  include/linux/rcutree.h \
+  include/uapi/linux/ipc.h \
+  arch/x86/include/generated/uapi/asm/ipcbuf.h \
+  include/uapi/asm-generic/ipcbuf.h \
+  include/linux/refcount.h \
+    $(wildcard include/config/refcount/full.h) \
+  arch/x86/include/asm/refcount.h \
+  arch/x86/include/uapi/asm/sembuf.h \
+  include/linux/socket.h \
+  arch/x86/include/generated/uapi/asm/socket.h \
+  include/uapi/asm-generic/socket.h \
+  arch/x86/include/generated/uapi/asm/sockios.h \
+  include/uapi/asm-generic/sockios.h \
+  include/uapi/linux/sockios.h \
+  include/linux/uio.h \
+    $(wildcard include/config/arch/has/uaccess/mcsafe.h) \
+  include/crypto/hash.h \
+  include/linux/crypto.h \
+    $(wildcard include/config/crypto/stats.h) \
+  include/linux/slab.h \
+    $(wildcard include/config/debug/slab.h) \
+    $(wildcard include/config/failslab.h) \
+    $(wildcard include/config/memcg/kmem.h) \
+    $(wildcard include/config/have/hardened/usercopy/allocator.h) \
+    $(wildcard include/config/slab.h) \
+    $(wildcard include/config/slub.h) \
+    $(wildcard include/config/slob.h) \
+    $(wildcard include/config/zone/dma.h) \
+    $(wildcard include/config/numa.h) \
+  include/linux/gfp.h \
+    $(wildcard include/config/highmem.h) \
+    $(wildcard include/config/zone/dma32.h) \
+    $(wildcard include/config/zone/device.h) \
+    $(wildcard include/config/pm/sleep.h) \
+    $(wildcard include/config/contig/alloc.h) \
+    $(wildcard include/config/cma.h) \
+  include/linux/mmdebug.h \
+    $(wildcard include/config/debug/vm.h) \
+    $(wildcard include/config/debug/vm/pgflags.h) \
+  include/linux/mmzone.h \
+    $(wildcard include/config/force/max/zoneorder.h) \
+    $(wildcard include/config/memory/isolation.h) \
+    $(wildcard include/config/shuffle/page/allocator.h) \
+    $(wildcard include/config/zsmalloc.h) \
+    $(wildcard include/config/memcg.h) \
+    $(wildcard include/config/memory/hotplug.h) \
+    $(wildcard include/config/compaction.h) \
+    $(wildcard include/config/transparent/hugepage.h) \
+    $(wildcard include/config/flat/node/mem/map.h) \
+    $(wildcard include/config/page/extension.h) \
+    $(wildcard include/config/deferred/struct/page/init.h) \
+    $(wildcard include/config/have/memory/present.h) \
+    $(wildcard include/config/have/memoryless/nodes.h) \
+    $(wildcard include/config/have/memblock/node/map.h) \
+    $(wildcard include/config/need/multiple/nodes.h) \
+    $(wildcard include/config/have/arch/early/pfn/to/nid.h) \
+    $(wildcard include/config/sparsemem/extreme.h) \
+    $(wildcard include/config/memory/hotremove.h) \
+    $(wildcard include/config/have/arch/pfn/valid.h) \
+    $(wildcard include/config/holes/in/zone.h) \
+    $(wildcard include/config/arch/has/holes/memorymodel.h) \
+  include/linux/wait.h \
+  include/uapi/linux/wait.h \
+  include/linux/numa.h \
+    $(wildcard include/config/nodes/shift.h) \
+  include/linux/nodemask.h \
+  include/linux/pageblock-flags.h \
+    $(wildcard include/config/hugetlb/page.h) \
+    $(wildcard include/config/hugetlb/page/size/variable.h) \
+  include/linux/page-flags-layout.h \
+    $(wildcard include/config/numa/balancing.h) \
+    $(wildcard include/config/kasan/sw/tags.h) \
+  include/generated/bounds.h \
+  include/linux/mm_types.h \
+    $(wildcard include/config/have/aligned/struct/page.h) \
+    $(wildcard include/config/userfaultfd.h) \
+    $(wildcard include/config/swap.h) \
+    $(wildcard include/config/have/arch/compat/mmap/bases.h) \
+    $(wildcard include/config/membarrier.h) \
+    $(wildcard include/config/aio.h) \
+    $(wildcard include/config/mmu/notifier.h) \
+    $(wildcard include/config/arch/want/batched/unmap/tlb/flush.h) \
+  include/linux/mm_types_task.h \
+    $(wildcard include/config/split/ptlock/cpus.h) \
+    $(wildcard include/config/arch/enable/split/pmd/ptlock.h) \
+  arch/x86/include/asm/tlbbatch.h \
+  include/linux/auxvec.h \
+  include/uapi/linux/auxvec.h \
+  arch/x86/include/uapi/asm/auxvec.h \
+  include/linux/rbtree.h \
+  include/linux/rwsem.h \
+    $(wildcard include/config/rwsem/spin/on/owner.h) \
+    $(wildcard include/config/debug/rwsems.h) \
+  include/linux/completion.h \
+  include/linux/uprobes.h \
+    $(wildcard include/config/uprobes.h) \
+  arch/x86/include/asm/uprobes.h \
+  include/linux/notifier.h \
+    $(wildcard include/config/tree/srcu.h) \
+  include/linux/srcu.h \
+    $(wildcard include/config/tiny/srcu.h) \
+    $(wildcard include/config/srcu.h) \
+  include/linux/rcu_segcblist.h \
+  include/linux/srcutree.h \
+  include/linux/rcu_node_tree.h \
+    $(wildcard include/config/rcu/fanout.h) \
+    $(wildcard include/config/rcu/fanout/leaf.h) \
+  arch/x86/include/asm/mmu.h \
+    $(wildcard include/config/modify/ldt/syscall.h) \
+  include/linux/page-flags.h \
+    $(wildcard include/config/arch/uses/pg/uncached.h) \
+    $(wildcard include/config/memory/failure.h) \
+    $(wildcard include/config/idle/page/tracking.h) \
+    $(wildcard include/config/thp/swap.h) \
+    $(wildcard include/config/ksm.h) \
+  include/linux/memory_hotplug.h \
+    $(wildcard include/config/arch/has/add/pages.h) \
+    $(wildcard include/config/have/arch/nodedata/extension.h) \
+    $(wildcard include/config/have/bootmem/info/node.h) \
+  arch/x86/include/asm/mmzone.h \
+  arch/x86/include/asm/mmzone_64.h \
+  arch/x86/include/asm/smp.h \
+    $(wildcard include/config/x86/local/apic.h) \
+    $(wildcard include/config/x86/io/apic.h) \
+    $(wildcard include/config/debug/nmi/selftest.h) \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/eisa.h) \
+    $(wildcard include/config/x86/mpparse.h) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/x86_init.h \
+  arch/x86/include/asm/apicdef.h \
+  arch/x86/include/asm/apic.h \
+    $(wildcard include/config/x86/x2apic.h) \
+  arch/x86/include/asm/fixmap.h \
+    $(wildcard include/config/provide/ohci1394/dma/init.h) \
+    $(wildcard include/config/pci/mmconfig.h) \
+    $(wildcard include/config/x86/intel/mid.h) \
+    $(wildcard include/config/acpi/apei/ghes.h) \
+    $(wildcard include/config/intel/txt.h) \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/acpi/apei.h) \
+    $(wildcard include/config/acpi.h) \
+    $(wildcard include/config/acpi/numa.h) \
+  include/acpi/pdc_intel.h \
+  arch/x86/include/asm/numa.h \
+    $(wildcard include/config/numa/emu.h) \
+  arch/x86/include/asm/topology.h \
+    $(wildcard include/config/sched/mc/prio.h) \
+  include/asm-generic/topology.h \
   arch/x86/include/asm/realmode.h \
     $(wildcard include/config/acpi/sleep.h) \
   arch/x86/include/asm/io.h \
@@ -465,91 +611,11 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/indirect/pio.h) \
   include/linux/fwnode.h \
   include/linux/vmalloc.h \
-  include/linux/rbtree.h \
-  include/linux/rcupdate.h \
-    $(wildcard include/config/preempt/rcu.h) \
-    $(wildcard include/config/rcu/stall/common.h) \
-    $(wildcard include/config/no/hz/full.h) \
-    $(wildcard include/config/rcu/nocb/cpu.h) \
-    $(wildcard include/config/tasks/rcu.h) \
-    $(wildcard include/config/tree/rcu.h) \
-    $(wildcard include/config/debug/objects/rcu/head.h) \
-    $(wildcard include/config/prove/rcu.h) \
-    $(wildcard include/config/rcu/boost.h) \
-    $(wildcard include/config/arch/weak/release/acquire.h) \
-  include/linux/rcutree.h \
+  include/linux/llist.h \
+    $(wildcard include/config/arch/have/nmi/safe/cmpxchg.h) \
   include/linux/overflow.h \
   arch/x86/include/uapi/asm/vsyscall.h \
   include/asm-generic/fixmap.h \
-  include/linux/mm_types.h \
-    $(wildcard include/config/have/aligned/struct/page.h) \
-    $(wildcard include/config/memcg.h) \
-    $(wildcard include/config/userfaultfd.h) \
-    $(wildcard include/config/swap.h) \
-    $(wildcard include/config/have/arch/compat/mmap/bases.h) \
-    $(wildcard include/config/membarrier.h) \
-    $(wildcard include/config/aio.h) \
-    $(wildcard include/config/transparent/hugepage.h) \
-    $(wildcard include/config/numa/balancing.h) \
-    $(wildcard include/config/arch/want/batched/unmap/tlb/flush.h) \
-    $(wildcard include/config/hugetlb/page.h) \
-  include/linux/mm_types_task.h \
-    $(wildcard include/config/split/ptlock/cpus.h) \
-    $(wildcard include/config/arch/enable/split/pmd/ptlock.h) \
-  arch/x86/include/asm/tlbbatch.h \
-  include/linux/auxvec.h \
-  include/uapi/linux/auxvec.h \
-  arch/x86/include/uapi/asm/auxvec.h \
-  include/linux/completion.h \
-  include/linux/wait.h \
-  include/uapi/linux/wait.h \
-  include/linux/uprobes.h \
-    $(wildcard include/config/uprobes.h) \
-  arch/x86/include/asm/uprobes.h \
-  include/linux/notifier.h \
-    $(wildcard include/config/tree/srcu.h) \
-  include/linux/srcu.h \
-    $(wildcard include/config/tiny/srcu.h) \
-    $(wildcard include/config/srcu.h) \
-  include/linux/workqueue.h \
-    $(wildcard include/config/debug/objects/work.h) \
-    $(wildcard include/config/freezer.h) \
-    $(wildcard include/config/sysfs.h) \
-    $(wildcard include/config/wq/watchdog.h) \
-  include/linux/timer.h \
-    $(wildcard include/config/debug/objects/timers.h) \
-    $(wildcard include/config/preempt/rt.h) \
-    $(wildcard include/config/no/hz/common.h) \
-  include/linux/ktime.h \
-  include/linux/time.h \
-    $(wildcard include/config/arch/uses/gettimeoffset.h) \
-  include/linux/seqlock.h \
-  include/linux/time32.h \
-  include/linux/timex.h \
-  include/uapi/linux/timex.h \
-  include/uapi/linux/param.h \
-  arch/x86/include/generated/uapi/asm/param.h \
-  include/asm-generic/param.h \
-    $(wildcard include/config/hz.h) \
-  include/uapi/asm-generic/param.h \
-  arch/x86/include/asm/timex.h \
-  arch/x86/include/asm/tsc.h \
-    $(wildcard include/config/x86/tsc.h) \
-  include/linux/jiffies.h \
-  include/generated/timeconst.h \
-  include/linux/timekeeping.h \
-  include/linux/timekeeping32.h \
-  include/linux/debugobjects.h \
-    $(wildcard include/config/debug/objects.h) \
-    $(wildcard include/config/debug/objects/free.h) \
-  include/linux/rcu_segcblist.h \
-  include/linux/srcutree.h \
-  include/linux/rcu_node_tree.h \
-    $(wildcard include/config/rcu/fanout.h) \
-    $(wildcard include/config/rcu/fanout/leaf.h) \
-  include/linux/page-flags-layout.h \
-    $(wildcard include/config/kasan/sw/tags.h) \
-  include/generated/bounds.h \
   arch/x86/include/asm/hardirq.h \
     $(wildcard include/config/kvm/intel.h) \
     $(wildcard include/config/have/kvm.h) \
@@ -561,71 +627,22 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   arch/x86/include/asm/io_apic.h \
   arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/pci/msi.h) \
-  include/linux/capability.h \
-    $(wildcard include/config/multiuser.h) \
-  include/uapi/linux/capability.h \
-  include/linux/uidgid.h \
-    $(wildcard include/config/user/ns.h) \
-  include/linux/highuid.h \
-  include/linux/slab.h \
-    $(wildcard include/config/debug/slab.h) \
-    $(wildcard include/config/failslab.h) \
-    $(wildcard include/config/memcg/kmem.h) \
-    $(wildcard include/config/have/hardened/usercopy/allocator.h) \
-    $(wildcard include/config/slab.h) \
-    $(wildcard include/config/slub.h) \
-    $(wildcard include/config/slob.h) \
-    $(wildcard include/config/zone/dma.h) \
-  include/linux/gfp.h \
-    $(wildcard include/config/zone/dma32.h) \
-    $(wildcard include/config/zone/device.h) \
-    $(wildcard include/config/pm/sleep.h) \
-    $(wildcard include/config/contig/alloc.h) \
-    $(wildcard include/config/cma.h) \
-  include/linux/mmzone.h \
-    $(wildcard include/config/force/max/zoneorder.h) \
-    $(wildcard include/config/memory/isolation.h) \
-    $(wildcard include/config/shuffle/page/allocator.h) \
-    $(wildcard include/config/zsmalloc.h) \
-    $(wildcard include/config/memory/hotplug.h) \
-    $(wildcard include/config/compaction.h) \
-    $(wildcard include/config/flat/node/mem/map.h) \
-    $(wildcard include/config/page/extension.h) \
-    $(wildcard include/config/deferred/struct/page/init.h) \
-    $(wildcard include/config/have/memory/present.h) \
-    $(wildcard include/config/have/memblock/node/map.h) \
-    $(wildcard include/config/have/arch/early/pfn/to/nid.h) \
-    $(wildcard include/config/sparsemem/extreme.h) \
-    $(wildcard include/config/memory/hotremove.h) \
-    $(wildcard include/config/have/arch/pfn/valid.h) \
-    $(wildcard include/config/holes/in/zone.h) \
-    $(wildcard include/config/arch/has/holes/memorymodel.h) \
-  include/linux/pageblock-flags.h \
-    $(wildcard include/config/hugetlb/page/size/variable.h) \
-  include/linux/page-flags.h \
-    $(wildcard include/config/arch/uses/pg/uncached.h) \
-    $(wildcard include/config/memory/failure.h) \
-    $(wildcard include/config/idle/page/tracking.h) \
-    $(wildcard include/config/thp/swap.h) \
-    $(wildcard include/config/ksm.h) \
-  include/linux/memory_hotplug.h \
-    $(wildcard include/config/arch/has/add/pages.h) \
-    $(wildcard include/config/have/arch/nodedata/extension.h) \
-    $(wildcard include/config/have/bootmem/info/node.h) \
-  arch/x86/include/asm/mmzone.h \
-  arch/x86/include/asm/mmzone_64.h \
   include/linux/topology.h \
     $(wildcard include/config/use/percpu/numa/node/id.h) \
     $(wildcard include/config/sched/smt.h) \
   include/linux/arch_topology.h \
     $(wildcard include/config/generic/arch/topology.h) \
+  include/linux/percpu.h \
+    $(wildcard include/config/need/per/cpu/embed/first/chunk.h) \
+    $(wildcard include/config/need/per/cpu/page/first/chunk.h) \
+  include/linux/smp.h \
+    $(wildcard include/config/up/late/init.h) \
   include/linux/percpu-refcount.h \
   include/linux/kasan.h \
     $(wildcard include/config/kasan/generic.h) \
-  include/linux/semaphore.h \
-  include/linux/kthread.h \
-    $(wildcard include/config/blk/cgroup.h) \
+  include/linux/uaccess.h \
   include/linux/sched.h \
+    $(wildcard include/config/virt/cpu/accounting/native.h) \
     $(wildcard include/config/sched/info.h) \
     $(wildcard include/config/schedstats.h) \
     $(wildcard include/config/fair/group/sched.h) \
@@ -637,10 +654,11 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/psi.h) \
     $(wildcard include/config/compat/brk.h) \
     $(wildcard include/config/cgroups.h) \
+    $(wildcard include/config/blk/cgroup.h) \
     $(wildcard include/config/arch/has/scaled/cputime.h) \
+    $(wildcard include/config/virt/cpu/accounting/gen.h) \
     $(wildcard include/config/posix/cputimers.h) \
     $(wildcard include/config/keys.h) \
-    $(wildcard include/config/sysvipc.h) \
     $(wildcard include/config/detect/hung/task.h) \
     $(wildcard include/config/audit.h) \
     $(wildcard include/config/auditsyscall.h) \
@@ -669,17 +687,6 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   include/linux/pid.h \
   include/linux/rculist.h \
     $(wildcard include/config/prove/rcu/list.h) \
-  include/linux/refcount.h \
-    $(wildcard include/config/refcount/full.h) \
-  arch/x86/include/asm/refcount.h \
-  include/linux/sem.h \
-  include/uapi/linux/sem.h \
-  include/linux/ipc.h \
-  include/linux/rhashtable-types.h \
-  include/uapi/linux/ipc.h \
-  arch/x86/include/generated/uapi/asm/ipcbuf.h \
-  include/uapi/asm-generic/ipcbuf.h \
-  arch/x86/include/uapi/asm/sembuf.h \
   include/linux/shm.h \
   include/uapi/linux/shm.h \
   include/uapi/asm-generic/hugetlb_encode.h \
@@ -733,156 +740,16 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/posix/timers.h) \
   include/linux/alarmtimer.h \
   include/uapi/linux/rseq.h \
-  include/linux/delay.h \
-  arch/x86/include/asm/delay.h \
-  include/asm-generic/delay.h \
-  include/linux/pci.h \
-    $(wildcard include/config/pci/iov.h) \
-    $(wildcard include/config/pcieaer.h) \
-    $(wildcard include/config/pcieaspm.h) \
-    $(wildcard include/config/hotplug/pci/pcie.h) \
-    $(wildcard include/config/pcie/ptm.h) \
-    $(wildcard include/config/pci/ats.h) \
-    $(wildcard include/config/pci/pri.h) \
-    $(wildcard include/config/pci/pasid.h) \
-    $(wildcard include/config/pci/p2pdma.h) \
-    $(wildcard include/config/pci/domains/generic.h) \
-    $(wildcard include/config/pcieportbus.h) \
-    $(wildcard include/config/pci/domains.h) \
-    $(wildcard include/config/pci/quirks.h) \
-    $(wildcard include/config/hibernate/callbacks.h) \
-    $(wildcard include/config/acpi/mcfg.h) \
-    $(wildcard include/config/hotplug/pci.h) \
-    $(wildcard include/config/of.h) \
-    $(wildcard include/config/eeh.h) \
-  include/linux/mod_devicetable.h \
-  include/linux/uuid.h \
-  include/uapi/linux/uuid.h \
-  include/linux/ioport.h \
-    $(wildcard include/config/io/strict/devmem.h) \
-  include/linux/kobject.h \
-    $(wildcard include/config/uevent/helper.h) \
-    $(wildcard include/config/debug/kobject/release.h) \
-  include/linux/sysfs.h \
-  include/linux/kernfs.h \
-    $(wildcard include/config/kernfs.h) \
-  include/linux/idr.h \
-  include/linux/radix-tree.h \
-  include/linux/xarray.h \
-    $(wildcard include/config/xarray/multi.h) \
-  include/linux/kconfig.h \
-  include/linux/kobject_ns.h \
-  include/linux/stat.h \
-  arch/x86/include/uapi/asm/stat.h \
-  include/uapi/linux/stat.h \
-  include/linux/kref.h \
-  include/linux/device.h \
-    $(wildcard include/config/debug/devres.h) \
-    $(wildcard include/config/generic/msi/irq/domain.h) \
-    $(wildcard include/config/pinctrl.h) \
-    $(wildcard include/config/generic/msi/irq.h) \
-    $(wildcard include/config/dma/declare/coherent.h) \
-    $(wildcard include/config/dma/cma.h) \
-    $(wildcard include/config/arch/has/sync/dma/for/device.h) \
-    $(wildcard include/config/arch/has/sync/dma/for/cpu.h) \
-    $(wildcard include/config/arch/has/sync/dma/for/cpu/all.h) \
-    $(wildcard include/config/devtmpfs.h) \
-    $(wildcard include/config/sysfs/deprecated.h) \
-  include/linux/klist.h \
-  include/linux/pm.h \
-    $(wildcard include/config/vt/console/sleep.h) \
-    $(wildcard include/config/pm.h) \
-    $(wildcard include/config/pm/clk.h) \
-    $(wildcard include/config/pm/generic/domains.h) \
-  include/linux/ratelimit.h \
-  arch/x86/include/asm/device.h \
-    $(wildcard include/config/intel/iommu.h) \
-    $(wildcard include/config/amd/iommu.h) \
-    $(wildcard include/config/sta2x11.h) \
-    $(wildcard include/config/x86/dev/dma/ops.h) \
-  include/linux/pm_wakeup.h \
-  include/linux/interrupt.h \
-    $(wildcard include/config/irq/forced/threading.h) \
-    $(wildcard include/config/generic/irq/probe.h) \
-    $(wildcard include/config/irq/timings.h) \
-  include/linux/irqreturn.h \
-  include/linux/irqnr.h \
-  include/uapi/linux/irqnr.h \
-  arch/x86/include/asm/irq.h \
-  arch/x86/include/asm/sections.h \
-  include/asm-generic/sections.h \
-  arch/x86/include/asm/extable.h \
-  include/linux/io.h \
-    $(wildcard include/config/have/arch/huge/vmap.h) \
-  include/linux/resource_ext.h \
-  include/uapi/linux/pci.h \
-  include/uapi/linux/pci_regs.h \
-  include/linux/pci_ids.h \
-  include/linux/dmapool.h \
-    $(wildcard include/config/has/dma.h) \
-  include/linux/scatterlist.h \
-    $(wildcard include/config/need/sg/dma/length.h) \
-    $(wildcard include/config/debug/sg.h) \
-    $(wildcard include/config/sgl/alloc.h) \
-    $(wildcard include/config/arch/no/sg/chain.h) \
-    $(wildcard include/config/sg/pool.h) \
-  include/linux/mm.h \
-    $(wildcard include/config/sysctl.h) \
-    $(wildcard include/config/have/arch/mmap/rnd/bits.h) \
-    $(wildcard include/config/have/arch/mmap/rnd/compat/bits.h) \
-    $(wildcard include/config/arch/uses/high/vma/flags.h) \
-    $(wildcard include/config/arch/has/pkeys.h) \
-    $(wildcard include/config/ppc.h) \
-    $(wildcard include/config/parisc.h) \
-    $(wildcard include/config/ia64.h) \
-    $(wildcard include/config/sparc64.h) \
-    $(wildcard include/config/stack/growsup.h) \
-    $(wildcard include/config/shmem.h) \
-    $(wildcard include/config/arch/has/pte/devmap.h) \
-    $(wildcard include/config/dev/pagemap/ops.h) \
-    $(wildcard include/config/device/private.h) \
-    $(wildcard include/config/debug/vm/rb.h) \
-    $(wildcard include/config/page/poisoning.h) \
-    $(wildcard include/config/init/on/alloc/default/on.h) \
-    $(wildcard include/config/init/on/free/default/on.h) \
-    $(wildcard include/config/debug/pagealloc.h) \
-    $(wildcard include/config/arch/has/set/direct/map.h) \
-    $(wildcard include/config/hibernation.h) \
-    $(wildcard include/config/hugetlbfs.h) \
-  include/linux/bit_spinlock.h \
-  include/linux/shrinker.h \
-  include/linux/page_ext.h \
-  include/linux/stacktrace.h \
-    $(wildcard include/config/stacktrace.h) \
-    $(wildcard include/config/arch/stackwalk.h) \
-    $(wildcard include/config/have/reliable/stacktrace.h) \
-  include/linux/stackdepot.h \
-  include/linux/page_ref.h \
-    $(wildcard include/config/debug/page/ref.h) \
-  include/linux/memremap.h \
-  include/linux/sizes.h \
-  arch/x86/include/asm/pgtable.h \
-    $(wildcard include/config/debug/wx.h) \
-    $(wildcard include/config/have/arch/transparent/hugepage/pud.h) \
-    $(wildcard include/config/have/arch/soft/dirty.h) \
-    $(wildcard include/config/arch/enable/thp/migration.h) \
-  arch/x86/include/asm/fpu/xstate.h \
-  include/linux/uaccess.h \
   arch/x86/include/asm/uaccess.h \
     $(wildcard include/config/x86/intel/usercopy.h) \
   arch/x86/include/asm/smap.h \
+  arch/x86/include/asm/extable.h \
   arch/x86/include/asm/uaccess_64.h \
-  arch/x86/include/asm/user.h \
-  arch/x86/include/asm/user_64.h \
-  arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/x86/debug/fpu.h) \
-  arch/x86/include/asm/pgtable_64.h \
-  arch/x86/include/asm/pgtable-invert.h \
-  include/asm-generic/pgtable.h \
-    $(wildcard include/config/x86/espfix64.h) \
-  include/linux/huge_mm.h \
-  include/linux/sched/coredump.h \
-    $(wildcard include/config/core/dump/default/elf/headers.h) \
+  include/uapi/linux/uio.h \
+  include/uapi/linux/socket.h \
+  include/uapi/linux/if.h \
+  include/uapi/linux/libc-compat.h \
+  include/uapi/linux/hdlc/ioctl.h \
   include/linux/fs.h \
     $(wildcard include/config/read/only/thp/for/fs.h) \
     $(wildcard include/config/fs/posix/acl.h) \
@@ -905,6 +772,7 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   include/linux/dcache.h \
   include/linux/rculist_bl.h \
   include/linux/list_bl.h \
+  include/linux/bit_spinlock.h \
   include/linux/lockref.h \
     $(wildcard include/config/arch/use/cmpxchg/lockref.h) \
   include/linux/stringhash.h \
@@ -913,6 +781,14 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/have/arch/hash.h) \
   include/linux/path.h \
   include/linux/list_lru.h \
+  include/linux/shrinker.h \
+  include/linux/radix-tree.h \
+  include/linux/xarray.h \
+    $(wildcard include/config/xarray/multi.h) \
+  include/linux/kconfig.h \
+  include/linux/capability.h \
+  include/uapi/linux/capability.h \
+  include/linux/semaphore.h \
   include/linux/fcntl.h \
     $(wildcard include/config/arch/32bit/off/t.h) \
   include/uapi/linux/fcntl.h \
@@ -924,6 +800,8 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   include/linux/rcuwait.h \
   include/linux/rcu_sync.h \
   include/linux/delayed_call.h \
+  include/linux/uuid.h \
+  include/uapi/linux/uuid.h \
   include/linux/errseq.h \
   include/linux/ioprio.h \
   include/linux/sched/rt.h \
@@ -940,6 +818,82 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   include/linux/projid.h \
   include/uapi/linux/quota.h \
   include/linux/nfs_fs_i.h \
+  include/uapi/linux/aio_abi.h \
+  arch/x86/include/asm/compat.h \
+  include/linux/sched/task_stack.h \
+    $(wildcard include/config/stack/growsup.h) \
+    $(wildcard include/config/debug/stack/usage.h) \
+  include/uapi/linux/magic.h \
+  arch/x86/include/asm/user32.h \
+  include/asm-generic/compat.h \
+  arch/x86/include/asm/syscall_wrapper.h \
+    $(wildcard include/config/x86/x32.h) \
+  include/linux/eventfd.h \
+    $(wildcard include/config/eventfd.h) \
+  include/uapi/linux/vhost.h \
+  include/uapi/linux/vhost_types.h \
+  include/linux/virtio_config.h \
+  include/linux/virtio.h \
+    $(wildcard include/config/pm.h) \
+  include/linux/scatterlist.h \
+    $(wildcard include/config/need/sg/dma/length.h) \
+    $(wildcard include/config/debug/sg.h) \
+    $(wildcard include/config/sgl/alloc.h) \
+    $(wildcard include/config/arch/no/sg/chain.h) \
+    $(wildcard include/config/sg/pool.h) \
+  include/linux/mm.h \
+    $(wildcard include/config/sysctl.h) \
+    $(wildcard include/config/have/arch/mmap/rnd/bits.h) \
+    $(wildcard include/config/have/arch/mmap/rnd/compat/bits.h) \
+    $(wildcard include/config/arch/uses/high/vma/flags.h) \
+    $(wildcard include/config/arch/has/pkeys.h) \
+    $(wildcard include/config/ppc.h) \
+    $(wildcard include/config/parisc.h) \
+    $(wildcard include/config/ia64.h) \
+    $(wildcard include/config/sparc64.h) \
+    $(wildcard include/config/shmem.h) \
+    $(wildcard include/config/arch/has/pte/devmap.h) \
+    $(wildcard include/config/dev/pagemap/ops.h) \
+    $(wildcard include/config/device/private.h) \
+    $(wildcard include/config/pci/p2pdma.h) \
+    $(wildcard include/config/debug/vm/rb.h) \
+    $(wildcard include/config/page/poisoning.h) \
+    $(wildcard include/config/init/on/alloc/default/on.h) \
+    $(wildcard include/config/init/on/free/default/on.h) \
+    $(wildcard include/config/debug/pagealloc.h) \
+    $(wildcard include/config/arch/has/set/direct/map.h) \
+    $(wildcard include/config/hibernation.h) \
+    $(wildcard include/config/hugetlbfs.h) \
+  include/linux/page_ext.h \
+  include/linux/stacktrace.h \
+    $(wildcard include/config/stacktrace.h) \
+    $(wildcard include/config/arch/stackwalk.h) \
+    $(wildcard include/config/have/reliable/stacktrace.h) \
+  include/linux/stackdepot.h \
+  include/linux/page_ref.h \
+    $(wildcard include/config/debug/page/ref.h) \
+  include/linux/memremap.h \
+  include/linux/ioport.h \
+    $(wildcard include/config/io/strict/devmem.h) \
+  include/linux/sizes.h \
+  arch/x86/include/asm/pgtable.h \
+    $(wildcard include/config/debug/wx.h) \
+    $(wildcard include/config/have/arch/transparent/hugepage/pud.h) \
+    $(wildcard include/config/have/arch/soft/dirty.h) \
+    $(wildcard include/config/arch/enable/thp/migration.h) \
+  arch/x86/include/asm/fpu/xstate.h \
+  arch/x86/include/asm/user.h \
+  arch/x86/include/asm/user_64.h \
+  arch/x86/include/asm/fpu/api.h \
+    $(wildcard include/config/x86/debug/fpu.h) \
+  arch/x86/include/asm/pgtable_64.h \
+  arch/x86/include/asm/pgtable-invert.h \
+  include/asm-generic/pgtable.h \
+    $(wildcard include/config/have/arch/huge/vmap.h) \
+    $(wildcard include/config/x86/espfix64.h) \
+  include/linux/huge_mm.h \
+  include/linux/sched/coredump.h \
+    $(wildcard include/config/core/dump/default/elf/headers.h) \
   include/linux/vmstat.h \
     $(wildcard include/config/vm/event/counters.h) \
     $(wildcard include/config/debug/tlbflush.h) \
@@ -947,26 +901,55 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   include/linux/vm_event_item.h \
     $(wildcard include/config/memory/balloon.h) \
     $(wildcard include/config/balloon/compaction.h) \
-  arch/x86/include/asm/pci.h \
-    $(wildcard include/config/pci/msi/irq/domain.h) \
-    $(wildcard include/config/vmd.h) \
-  arch/x86/include/asm/pat.h \
-  arch/x86/include/asm/pci_64.h \
-    $(wildcard include/config/calgary/iommu.h) \
-  include/asm-generic/pci.h \
-  include/linux/pci-dma-compat.h \
-  include/linux/dma-mapping.h \
-    $(wildcard include/config/swiotlb.h) \
-    $(wildcard include/config/arch/has/setup/dma/ops.h) \
-    $(wildcard include/config/arch/has/teardown/dma/ops.h) \
-    $(wildcard include/config/need/dma/map/state.h) \
-  include/linux/dma-debug.h \
-    $(wildcard include/config/dma/api/debug.h) \
-  include/linux/dma-direction.h \
-  arch/x86/include/asm/dma-mapping.h \
-  arch/x86/include/asm/swiotlb.h \
-  include/linux/swiotlb.h \
-  include/linux/dma-contiguous.h \
+  include/linux/device.h \
+    $(wildcard include/config/debug/devres.h) \
+    $(wildcard include/config/generic/msi/irq/domain.h) \
+    $(wildcard include/config/pinctrl.h) \
+    $(wildcard include/config/generic/msi/irq.h) \
+    $(wildcard include/config/dma/declare/coherent.h) \
+    $(wildcard include/config/dma/cma.h) \
+    $(wildcard include/config/arch/has/sync/dma/for/device.h) \
+    $(wildcard include/config/arch/has/sync/dma/for/cpu.h) \
+    $(wildcard include/config/arch/has/sync/dma/for/cpu/all.h) \
+    $(wildcard include/config/of.h) \
+    $(wildcard include/config/devtmpfs.h) \
+    $(wildcard include/config/sysfs/deprecated.h) \
+  include/linux/kobject.h \
+    $(wildcard include/config/uevent/helper.h) \
+    $(wildcard include/config/debug/kobject/release.h) \
+  include/linux/sysfs.h \
+  include/linux/kernfs.h \
+    $(wildcard include/config/kernfs.h) \
+  include/linux/idr.h \
+  include/linux/kobject_ns.h \
+  include/linux/kref.h \
+  include/linux/klist.h \
+  include/linux/pm.h \
+    $(wildcard include/config/vt/console/sleep.h) \
+    $(wildcard include/config/pm/clk.h) \
+    $(wildcard include/config/pm/generic/domains.h) \
+  include/linux/ratelimit.h \
+  arch/x86/include/asm/device.h \
+    $(wildcard include/config/intel/iommu.h) \
+    $(wildcard include/config/amd/iommu.h) \
+    $(wildcard include/config/sta2x11.h) \
+    $(wildcard include/config/x86/dev/dma/ops.h) \
+    $(wildcard include/config/pci/domains.h) \
+  include/linux/pm_wakeup.h \
+  include/linux/mod_devicetable.h \
+  include/linux/vringh.h \
+  include/uapi/linux/virtio_ring.h \
+  include/uapi/linux/virtio_types.h \
+  include/linux/virtio_byteorder.h \
+  include/uapi/linux/virtio_types.h \
+  include/uapi/linux/virtio_config.h \
+  include/linux/virtio_ring.h \
+  include/linux/irqreturn.h \
+  include/linux/virtio_net.h \
+  include/linux/if_vlan.h \
+    $(wildcard include/config/vlan/8021q.h) \
+    $(wildcard include/config/net/poll/controller.h) \
+    $(wildcard include/config/have/efficient/unaligned/access.h) \
   include/linux/netdevice.h \
     $(wildcard include/config/dcb.h) \
     $(wildcard include/config/hyperv/net.h) \
@@ -985,13 +968,11 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/rfs/accel.h) \
     $(wildcard include/config/fcoe.h) \
     $(wildcard include/config/xfrm/offload.h) \
-    $(wildcard include/config/net/poll/controller.h) \
     $(wildcard include/config/libfcoe.h) \
     $(wildcard include/config/wireless/ext.h) \
     $(wildcard include/config/net/l3/master/dev.h) \
     $(wildcard include/config/ipv6.h) \
     $(wildcard include/config/tls/device.h) \
-    $(wildcard include/config/vlan/8021q.h) \
     $(wildcard include/config/net/dsa.h) \
     $(wildcard include/config/tipc.h) \
     $(wildcard include/config/irda.h) \
@@ -1005,39 +986,12 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/mrp.h) \
     $(wildcard include/config/cgroup/net/prio.h) \
     $(wildcard include/config/net/flow/limit.h) \
+  include/linux/delay.h \
+  arch/x86/include/asm/delay.h \
+  include/asm-generic/delay.h \
   include/linux/prefetch.h \
   include/linux/dynamic_queue_limits.h \
   include/linux/ethtool.h \
-  include/linux/compat.h \
-    $(wildcard include/config/arch/has/syscall/wrapper.h) \
-    $(wildcard include/config/x86/x32/abi.h) \
-    $(wildcard include/config/compat/old/sigaction.h) \
-    $(wildcard include/config/odd/rt/sigaction.h) \
-  include/linux/socket.h \
-  arch/x86/include/generated/uapi/asm/socket.h \
-  include/uapi/asm-generic/socket.h \
-  arch/x86/include/generated/uapi/asm/sockios.h \
-  include/uapi/asm-generic/sockios.h \
-  include/uapi/linux/sockios.h \
-  include/linux/uio.h \
-    $(wildcard include/config/arch/has/uaccess/mcsafe.h) \
-  include/crypto/hash.h \
-  include/linux/crypto.h \
-    $(wildcard include/config/crypto/stats.h) \
-  include/uapi/linux/uio.h \
-  include/uapi/linux/socket.h \
-  include/uapi/linux/if.h \
-  include/uapi/linux/libc-compat.h \
-  include/uapi/linux/hdlc/ioctl.h \
-  include/uapi/linux/aio_abi.h \
-  arch/x86/include/asm/compat.h \
-  include/linux/sched/task_stack.h \
-    $(wildcard include/config/debug/stack/usage.h) \
-  include/uapi/linux/magic.h \
-  arch/x86/include/asm/user32.h \
-  include/asm-generic/compat.h \
-  arch/x86/include/asm/syscall_wrapper.h \
-    $(wildcard include/config/x86/x32.h) \
   include/uapi/linux/ethtool.h \
   include/linux/if_ether.h \
   include/linux/skbuff.h \
@@ -1051,7 +1005,6 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/net/rx/busy/poll.h) \
     $(wildcard include/config/network/secmark.h) \
     $(wildcard include/config/net.h) \
-    $(wildcard include/config/have/efficient/unaligned/access.h) \
     $(wildcard include/config/network/phy/timestamping.h) \
     $(wildcard include/config/xfrm.h) \
     $(wildcard include/config/netfilter/xt/target/trace.h) \
@@ -1063,6 +1016,8 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/arch/random.h) \
   include/linux/once.h \
   include/uapi/linux/random.h \
+  include/linux/irqnr.h \
+  include/uapi/linux/irqnr.h \
   include/linux/prandom.h \
   arch/x86/include/asm/archrandom.h \
   include/uapi/linux/net.h \
@@ -1070,9 +1025,23 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   include/net/checksum.h \
   arch/x86/include/asm/checksum.h \
   arch/x86/include/asm/checksum_64.h \
+  include/linux/dma-mapping.h \
+    $(wildcard include/config/swiotlb.h) \
+    $(wildcard include/config/has/dma.h) \
+    $(wildcard include/config/arch/has/setup/dma/ops.h) \
+    $(wildcard include/config/arch/has/teardown/dma/ops.h) \
+    $(wildcard include/config/need/dma/map/state.h) \
+  include/linux/dma-debug.h \
+    $(wildcard include/config/dma/api/debug.h) \
+  include/linux/dma-direction.h \
+  arch/x86/include/asm/dma-mapping.h \
+  arch/x86/include/asm/swiotlb.h \
+  include/linux/swiotlb.h \
+  include/linux/dma-contiguous.h \
   include/linux/netdev_features.h \
   include/linux/sched/clock.h \
     $(wildcard include/config/have/unstable/sched/clock.h) \
+    $(wildcard include/config/irq/time/accounting.h) \
   include/net/flow_dissector.h \
   include/linux/in6.h \
   include/uapi/linux/in6.h \
@@ -1181,6 +1150,21 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/inotify/user.h) \
     $(wildcard include/config/persistent/keyrings.h) \
   include/linux/kernel_stat.h \
+  include/linux/interrupt.h \
+    $(wildcard include/config/irq/forced/threading.h) \
+    $(wildcard include/config/generic/irq/probe.h) \
+    $(wildcard include/config/irq/timings.h) \
+  include/linux/hardirq.h \
+  include/linux/ftrace_irq.h \
+    $(wildcard include/config/ftrace/nmi/enter.h) \
+    $(wildcard include/config/hwlat/tracer.h) \
+  include/linux/vtime.h \
+    $(wildcard include/config/virt/cpu/accounting.h) \
+  include/linux/context_tracking_state.h \
+    $(wildcard include/config/context/tracking.h) \
+  arch/x86/include/asm/irq.h \
+  arch/x86/include/asm/sections.h \
+  include/asm-generic/sections.h \
   include/linux/cgroup-defs.h \
   include/linux/bpf-cgroup.h \
   include/linux/bpf.h \
@@ -1198,6 +1182,7 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   include/linux/bpf_types.h \
     $(wildcard include/config/bpf/events.h) \
   include/linux/psi_types.h \
+  include/linux/kthread.h \
   include/linux/cgroup_subsys.h \
     $(wildcard include/config/cgroup/device.h) \
     $(wildcard include/config/cgroup/freezer.h) \
@@ -1235,104 +1220,52 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
   include/uapi/linux/pkt_cls.h \
   include/uapi/linux/pkt_sched.h \
   include/linux/hashtable.h \
-  include/linux/debugfs.h \
-    $(wildcard include/config/debug/fs.h) \
-  include/linux/mman.h \
-  include/uapi/linux/mman.h \
-  arch/x86/include/uapi/asm/mman.h \
-  include/uapi/asm-generic/mman.h \
-  include/uapi/asm-generic/mman-common.h \
+  include/linux/etherdevice.h \
+  arch/x86/include/asm/unaligned.h \
+  include/linux/unaligned/access_ok.h \
+  include/linux/unaligned/generic.h \
+  include/linux/rtnetlink.h \
+    $(wildcard include/config/net/ingress.h) \
+    $(wildcard include/config/net/egress.h) \
+  include/uapi/linux/rtnetlink.h \
+  include/uapi/linux/if_addr.h \
+  include/uapi/linux/if_vlan.h \
+  include/uapi/linux/tcp.h \
+  include/uapi/linux/udp.h \
+  include/uapi/linux/virtio_net.h \
+  include/uapi/linux/virtio_ids.h \
+  include/uapi/linux/virtio_blk.h \
+  include/linux/mmu_context.h \
+  arch/x86/include/asm/mmu_context.h \
+  arch/x86/include/asm/desc.h \
+  arch/x86/include/uapi/asm/ldt.h \
+  arch/x86/include/asm/cpu_entry_area.h \
+  arch/x86/include/asm/intel_ds.h \
+  include/linux/pkeys.h \
+  arch/x86/include/asm/pkeys.h \
+  include/trace/events/tlb.h \
+  include/linux/tracepoint.h \
+    $(wildcard include/config/have/syscall/tracepoints.h) \
+    $(wildcard include/config/tracepoint.h) \
+  include/trace/define_trace.h \
+  arch/x86/include/asm/pgalloc.h \
   include/linux/pagemap.h \
   include/linux/highmem.h \
   arch/x86/include/asm/cacheflush.h \
   include/asm-generic/cacheflush.h \
   include/linux/hugetlb_inline.h \
-  include/linux/poll.h \
-  include/uapi/linux/poll.h \
-  arch/x86/include/generated/uapi/asm/poll.h \
-  include/uapi/asm-generic/poll.h \
-  include/uapi/linux/eventpoll.h \
-  include/generated/uapi/linux/version.h \
-  /home/charlieporth1/mpss-modules/include/scif.h \
-  /home/charlieporth1/mpss-modules/include/mic/micbaseaddressdefine.h \
-  /home/charlieporth1/mpss-modules/include/mic/micsboxdefine.h \
-    $(wildcard include/config/mk1om.h) \
-  /home/charlieporth1/mpss-modules/include/scif_ioctl.h \
-  /home/charlieporth1/mpss-modules/include/mic/micscif_nodeqp.h \
-  /home/charlieporth1/mpss-modules/include/mic/micscif_rb.h \
-  /home/charlieporth1/mpss-modules/include/mic/micscif_nm.h \
-  /home/charlieporth1/mpss-modules/include/mic/micscif_smpt.h \
-  /home/charlieporth1/mpss-modules/include/mic/micscif_va_gen.h \
-  /home/charlieporth1/mpss-modules/include/mic/micscif_va_node.h \
-  /home/charlieporth1/mpss-modules/include/mic/mic_dma_api.h \
-  /home/charlieporth1/mpss-modules/include/mic/mic_dma_lib.h \
-  /home/charlieporth1/mpss-modules/include/mic/micscif_rma.h \
-    $(wildcard include/config/ml1om.h) \
-  include/linux/mmu_notifier.h \
-  include/linux/hugetlb.h \
-    $(wildcard include/config/arch/enable/hugepage/migration.h) \
-  include/linux/mempolicy.h \
-    $(wildcard include/config/tmpfs.h) \
-  include/linux/dax.h \
-    $(wildcard include/config/dax.h) \
-  include/uapi/linux/mempolicy.h \
+  include/asm-generic/pgalloc.h \
   arch/x86/include/asm/tlbflush.h \
   arch/x86/include/asm/invpcid.h \
   arch/x86/include/asm/pti.h \
-  arch/x86/include/asm/hugetlb.h \
-  include/asm-generic/hugetlb.h \
-    $(wildcard include/config/arch/has/gigantic/page.h) \
-  include/linux/sched/mm.h \
-    $(wildcard include/config/arch/has/membarrier/callbacks.h) \
-  include/linux/sync_core.h \
-    $(wildcard include/config/arch/has/sync/core/before/usermode.h) \
-  arch/x86/include/asm/sync_core.h \
-  /home/charlieporth1/mpss-modules/include/mic/micscif_kmem_cache.h \
-  /home/charlieporth1/mpss-modules/include/mic/micscif_rma_list.h \
-  /home/charlieporth1/mpss-modules/include/mic_common.h \
-  include/linux/nmi.h \
-    $(wildcard include/config/have/nmi/watchdog.h) \
-    $(wildcard include/config/lockup/detector.h) \
-    $(wildcard include/config/softlockup/detector.h) \
-    $(wildcard include/config/hardlockup/detector.h) \
-    $(wildcard include/config/hardlockup/detector/perf.h) \
-    $(wildcard include/config/hardlockup/check/timestamp.h) \
-    $(wildcard include/config/have/acpi/apei/nmi.h) \
-  arch/x86/include/asm/nmi.h \
-  include/linux/irq_work.h \
-    $(wildcard include/config/irq/work.h) \
-  arch/x86/include/asm/irq_work.h \
-  /home/charlieporth1/mpss-modules/include/mic/bootparams.h \
-  /home/charlieporth1/mpss-modules/include/mic/micdboxdefine.h \
-  /home/charlieporth1/mpss-modules/include/mic/ringbuffer.h \
-  /home/charlieporth1/mpss-modules/include/mic/micvcons.h \
-  include/linux/tty.h \
-    $(wildcard include/config/tty.h) \
+  arch/x86/include/asm/mpx.h \
+  arch/x86/include/asm/insn.h \
+  arch/x86/include/asm/inat.h \
+  arch/x86/include/asm/inat_types.h \
+  arch/x86/include/asm/debugreg.h \
+  arch/x86/include/uapi/asm/debugreg.h \
+  include/linux/miscdevice.h \
   include/uapi/linux/major.h \
-  include/uapi/linux/termios.h \
-  arch/x86/include/generated/uapi/asm/termios.h \
-  include/asm-generic/termios.h \
-  include/uapi/asm-generic/termios.h \
-  arch/x86/include/generated/uapi/asm/termbits.h \
-  include/uapi/asm-generic/termbits.h \
-  arch/x86/include/generated/uapi/asm/ioctls.h \
-  include/uapi/asm-generic/ioctls.h \
-  include/linux/tty_driver.h \
-    $(wildcard include/config/console/poll.h) \
-  include/linux/cdev.h \
-  include/linux/tty_ldisc.h \
-  include/uapi/linux/tty_flags.h \
-  include/uapi/linux/tty.h \
-  include/linux/tty_flip.h \
-  /home/charlieporth1/mpss-modules/include/mic/micpsmi.h \
-  /home/charlieporth1/mpss-modules/include/mic/io_interface.h \
-  /home/charlieporth1/mpss-modules/include/mic/mic_pm.h \
-  /home/charlieporth1/mpss-modules/include/mic/io_interface.h \
-  /home/charlieporth1/mpss-modules/include/mic/micveth_common.h \
-  /home/charlieporth1/mpss-modules/include/mic_interrupts.h \
-  /home/charlieporth1/mpss-modules/include/mic_common.h \
-  include/linux/proc_fs.h \
-    $(wildcard include/config/proc/pid/arch/status.h) \
   include/linux/module.h \
     $(wildcard include/config/modules/tree/lookup.h) \
     $(wildcard include/config/module/sig.h) \
@@ -1382,7 +1315,178 @@ deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o := \
     $(wildcard include/config/modules/use/elf/rel.h) \
     $(wildcard include/config/modules/use/elf/rela.h) \
   arch/x86/include/asm/orc_types.h \
+  include/linux/fdtable.h \
+  include/linux/nospec.h \
+  /home/charlieporth1/mpss-modules/include/mic_common.h \
+    $(wildcard include/config/ml1om.h) \
+  include/linux/nmi.h \
+    $(wildcard include/config/have/nmi/watchdog.h) \
+    $(wildcard include/config/lockup/detector.h) \
+    $(wildcard include/config/softlockup/detector.h) \
+    $(wildcard include/config/hardlockup/detector.h) \
+    $(wildcard include/config/hardlockup/detector/perf.h) \
+    $(wildcard include/config/hardlockup/check/timestamp.h) \
+    $(wildcard include/config/have/acpi/apei/nmi.h) \
+  arch/x86/include/asm/nmi.h \
+  include/linux/irq_work.h \
+    $(wildcard include/config/irq/work.h) \
+  arch/x86/include/asm/irq_work.h \
+  include/linux/pci.h \
+    $(wildcard include/config/pci/iov.h) \
+    $(wildcard include/config/pcieaer.h) \
+    $(wildcard include/config/pcieaspm.h) \
+    $(wildcard include/config/hotplug/pci/pcie.h) \
+    $(wildcard include/config/pcie/ptm.h) \
+    $(wildcard include/config/pci/ats.h) \
+    $(wildcard include/config/pci/pri.h) \
+    $(wildcard include/config/pci/pasid.h) \
+    $(wildcard include/config/pci/domains/generic.h) \
+    $(wildcard include/config/pcieportbus.h) \
+    $(wildcard include/config/pci/quirks.h) \
+    $(wildcard include/config/hibernate/callbacks.h) \
+    $(wildcard include/config/acpi/mcfg.h) \
+    $(wildcard include/config/hotplug/pci.h) \
+    $(wildcard include/config/eeh.h) \
+  include/linux/io.h \
+  include/linux/resource_ext.h \
+  include/uapi/linux/pci.h \
+  include/uapi/linux/pci_regs.h \
+  include/linux/pci_ids.h \
+  include/linux/dmapool.h \
+  arch/x86/include/asm/pci.h \
+    $(wildcard include/config/pci/msi/irq/domain.h) \
+    $(wildcard include/config/vmd.h) \
+  arch/x86/include/asm/pat.h \
+  arch/x86/include/asm/pci_64.h \
+    $(wildcard include/config/calgary/iommu.h) \
+  include/asm-generic/pci.h \
+  include/linux/pci-dma-compat.h \
+  include/linux/debugfs.h \
+    $(wildcard include/config/debug/fs.h) \
+  /home/charlieporth1/mpss-modules/include/mic/bootparams.h \
+  /home/charlieporth1/mpss-modules/include/mic/micsboxdefine.h \
+    $(wildcard include/config/mk1om.h) \
+  /home/charlieporth1/mpss-modules/include/mic/micdboxdefine.h \
+  /home/charlieporth1/mpss-modules/include/mic/ringbuffer.h \
+  /home/charlieporth1/mpss-modules/include/mic/micscif.h \
+  include/linux/mman.h \
+  include/uapi/linux/mman.h \
+  arch/x86/include/uapi/asm/mman.h \
+  include/uapi/asm-generic/mman.h \
+  include/uapi/asm-generic/mman-common.h \
+  include/linux/poll.h \
+  include/uapi/linux/poll.h \
+  arch/x86/include/generated/uapi/asm/poll.h \
+  include/uapi/asm-generic/poll.h \
+  include/uapi/linux/eventpoll.h \
+  /home/charlieporth1/mpss-modules/include/scif.h \
+  /home/charlieporth1/mpss-modules/include/mic/micbaseaddressdefine.h \
+  /home/charlieporth1/mpss-modules/include/scif_ioctl.h \
+  /home/charlieporth1/mpss-modules/include/mic/micscif_nodeqp.h \
+  /home/charlieporth1/mpss-modules/include/mic/micscif_rb.h \
+  /home/charlieporth1/mpss-modules/include/mic/micscif_nm.h \
+  /home/charlieporth1/mpss-modules/include/mic/micscif_smpt.h \
+  /home/charlieporth1/mpss-modules/include/mic/micscif_va_gen.h \
+  /home/charlieporth1/mpss-modules/include/mic/micscif_va_node.h \
+  /home/charlieporth1/mpss-modules/include/mic/mic_dma_api.h \
+  /home/charlieporth1/mpss-modules/include/mic/mic_dma_lib.h \
+  /home/charlieporth1/mpss-modules/include/mic/micscif_rma.h \
+  include/linux/mmu_notifier.h \
+  include/linux/hugetlb.h \
+    $(wildcard include/config/arch/enable/hugepage/migration.h) \
+  include/linux/mempolicy.h \
+    $(wildcard include/config/tmpfs.h) \
+  include/linux/dax.h \
+    $(wildcard include/config/dax.h) \
+  include/uapi/linux/mempolicy.h \
+  arch/x86/include/asm/hugetlb.h \
+  include/asm-generic/hugetlb.h \
+    $(wildcard include/config/arch/has/gigantic/page.h) \
+  include/linux/sched/mm.h \
+    $(wildcard include/config/arch/has/membarrier/callbacks.h) \
+  include/linux/sync_core.h \
+    $(wildcard include/config/arch/has/sync/core/before/usermode.h) \
+  arch/x86/include/asm/sync_core.h \
+  /home/charlieporth1/mpss-modules/include/mic/micscif_kmem_cache.h \
+  /home/charlieporth1/mpss-modules/include/mic/micscif_rma_list.h \
+  /home/charlieporth1/mpss-modules/include/mic/micvcons.h \
+  include/linux/tty.h \
+    $(wildcard include/config/tty.h) \
+  include/uapi/linux/termios.h \
+  arch/x86/include/generated/uapi/asm/termios.h \
+  include/asm-generic/termios.h \
+  include/uapi/asm-generic/termios.h \
+  arch/x86/include/generated/uapi/asm/termbits.h \
+  include/uapi/asm-generic/termbits.h \
+  arch/x86/include/generated/uapi/asm/ioctls.h \
+  include/uapi/asm-generic/ioctls.h \
+  include/linux/tty_driver.h \
+    $(wildcard include/config/console/poll.h) \
+  include/linux/cdev.h \
+  include/linux/tty_ldisc.h \
+  include/uapi/linux/tty_flags.h \
+  include/uapi/linux/tty.h \
+  include/linux/tty_flip.h \
+  /home/charlieporth1/mpss-modules/include/mic/micpsmi.h \
+  /home/charlieporth1/mpss-modules/include/mic/io_interface.h \
+  /home/charlieporth1/mpss-modules/include/mic/mic_pm.h \
+  /home/charlieporth1/mpss-modules/include/mic/io_interface.h \
+  /home/charlieporth1/mpss-modules/include/mic/micveth_common.h \
+  /home/charlieporth1/mpss-modules/include/mic_interrupts.h \
+  /home/charlieporth1/mpss-modules/include/mic_common.h \
+  /home/charlieporth1/mpss-modules/include/mic/micveth_dma.h \
+  /home/charlieporth1/mpss-modules/include/micint.h \
+  include/linux/blkdev.h \
+    $(wildcard include/config/blk/rq/alloc/time.h) \
+    $(wildcard include/config/blk/wbt.h) \
+    $(wildcard include/config/blk/dev/integrity.h) \
+    $(wildcard include/config/blk/dev/zoned.h) \
+    $(wildcard include/config/blk/dev/bsg.h) \
+    $(wildcard include/config/blk/dev/throttling.h) \
+    $(wildcard include/config/blk/debug/fs.h) \
+  include/linux/genhd.h \
+    $(wildcard include/config/fail/make/request.h) \
+    $(wildcard include/config/solaris/x86/partition.h) \
+    $(wildcard include/config/bsd/disklabel.h) \
+    $(wildcard include/config/unixware/disklabel.h) \
+    $(wildcard include/config/minix/subpartition.h) \
+  include/linux/blk_types.h \
+    $(wildcard include/config/blk/cgroup/iocost.h) \
+  arch/x86/include/asm/local.h \
+  include/linux/backing-dev-defs.h \
+  include/linux/flex_proportions.h \
+  include/linux/mempool.h \
+  include/linux/bio.h \
+  include/linux/bsg.h \
+  include/uapi/linux/bsg.h \
+  include/uapi/linux/blkzoned.h \
+  include/linux/elevator.h \
+  include/net/rtnetlink.h \
+  include/net/netlink.h \
+  include/linux/suspend.h \
+    $(wildcard include/config/vt.h) \
+    $(wildcard include/config/suspend.h) \
+    $(wildcard include/config/pm/sleep/debug.h) \
+    $(wildcard include/config/pm/autosleep.h) \
+    $(wildcard include/config/arch/save/page/keys.h) \
+  include/linux/swap.h \
+    $(wildcard include/config/frontswap.h) \
+    $(wildcard include/config/memcg/swap.h) \
+  include/linux/memcontrol.h \
+  include/linux/page_counter.h \
+  include/linux/vmpressure.h \
+  include/linux/writeback.h \
+  include/linux/blk-cgroup.h \
+  include/linux/node.h \
+    $(wildcard include/config/hmem/reporting.h) \
+    $(wildcard include/config/memory/hotplug/sparse.h) \
+  include/linux/freezer.h \
+  include/linux/ctype.h \
+  /home/charlieporth1/mpss-modules/include/mic/mic_dma_lib.h \
+  /home/charlieporth1/mpss-modules/host/vhost/vhost.h \
+  include/uapi/./linux/vhost.h \
+  /home/charlieporth1/mpss-modules/include/mic/mic_virtio.h \
 
-/home/charlieporth1/mpss-modules/micscif/micscif_debug.o: $(deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o)
+/home/charlieporth1/mpss-modules/host/vhost/mic_blk.o: $(deps_/home/charlieporth1/mpss-modules/host/vhost/mic_blk.o)
 
-$(deps_/home/charlieporth1/mpss-modules/micscif/micscif_debug.o):
+$(deps_/home/charlieporth1/mpss-modules/host/vhost/mic_blk.o):

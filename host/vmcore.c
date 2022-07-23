@@ -50,7 +50,8 @@
 #include <linux/elfcore.h>
 #include <linux/slab.h>
 #include <linux/highmem.h>
-#include <linux/bootmem.h>
+#include <linux/memblock.h>
+//#include <linux/bootmem.h>
 #include <linux/init.h>
 #include <linux/crash_dump.h>
 #include <linux/list.h>
@@ -161,7 +162,8 @@ ssize_t mic_copy_oldmem_page(mic_ctx_t *mic_ctx,
 }
 
 /* Reads a page from the oldmem device from given offset. */
-static ssize_t read_from_oldmem(mic_ctx_t *mic_ctx,
+
+static ssize_t read_from_oldmem_sizet(mic_ctx_t *mic_ctx,
 				char *buf, size_t count,
 				u64 *ppos, int userbuf)
 {
@@ -170,7 +172,7 @@ static ssize_t read_from_oldmem(mic_ctx_t *mic_ctx,
 	ssize_t read = 0, tmp;
 
 	if (!count)
-		return 0;
+		return (ssize_t) 0;
 
 	offset = (unsigned long)(*ppos % PAGE_SIZE);
 	pfn = (unsigned long)(*ppos / PAGE_SIZE);
@@ -270,7 +272,7 @@ static ssize_t read_vmcore(struct file *file, char __user *buffer,
 		tsz = nr_bytes;
 
 	while (buflen) {
-		tmp = read_from_oldmem(mic_ctx,buffer, tsz, &start, 1);
+		tmp = (int) read_from_oldmem_sizet(mic_ctx,buffer, tsz, &start, 1);
 		if (tmp < 0)
 			return tmp;
 		buflen -= tsz;
@@ -364,7 +366,7 @@ static int merge_note_headers_elf64(mic_ctx_t *mic_ctx,
 		notes_section = kmalloc(max_sz, GFP_KERNEL);
 		if (!notes_section)
 			return -ENOMEM;
-		rc = read_from_oldmem(mic_ctx, notes_section, max_sz, &offset, 0);
+		rc  = (int) read_from_oldmem_sizet(mic_ctx, notes_section, max_sz, &offset, 0);
 		if (rc < 0) {
 			kfree(notes_section);
 			return rc;
@@ -446,7 +448,7 @@ static int merge_note_headers_elf32(mic_ctx_t *mic_ctx,
 		notes_section = kmalloc(max_sz, GFP_KERNEL);
 		if (!notes_section)
 			return -ENOMEM;
-		rc = read_from_oldmem(mic_ctx, notes_section, max_sz, &offset, 0);
+		rc = (int) read_from_oldmem_sizet(mic_ctx, notes_section, max_sz, &offset, 0);
 		if (rc < 0) {
 			kfree(notes_section);
 			return rc;
@@ -626,7 +628,7 @@ static int parse_crash_elf64_headers(mic_ctx_t *mic_ctx)
 	addr = elfcorehdr_addr;
 
 	/* Read Elf header */
-	rc = read_from_oldmem(mic_ctx, (char*)&ehdr, sizeof(Elf64_Ehdr), &addr, 0);
+	rc = (int) read_from_oldmem_sizet(mic_ctx, (char*)&ehdr, sizeof(Elf64_Ehdr), &addr, 0);
 	if (rc < 0)
 		return rc;
 
@@ -660,7 +662,7 @@ static int parse_crash_elf64_headers(mic_ctx_t *mic_ctx)
 	if (!mic_ctx->elfcorebuf)
 		return -ENOMEM;
 	addr = elfcorehdr_addr;
-	rc = read_from_oldmem(mic_ctx, mic_ctx->elfcorebuf, mic_ctx->elfcorebuf_sz, &addr, 0);
+	rc = (int) read_from_oldmem_sizet(mic_ctx, mic_ctx->elfcorebuf, mic_ctx->elfcorebuf_sz, &addr, 0);
 	if (rc < 0) {
 		kfree(mic_ctx->elfcorebuf);
 		mic_ctx->elfcorebuf = NULL;
@@ -694,7 +696,7 @@ static int parse_crash_elf32_headers(mic_ctx_t *mic_ctx)
 	addr = elfcorehdr_addr;
 
 	/* Read Elf header */
-	rc = read_from_oldmem(mic_ctx, (char*)&ehdr, sizeof(Elf32_Ehdr), &addr, 0);
+	rc = (int) read_from_oldmem_sizet(mic_ctx, (char*)&ehdr, sizeof(Elf32_Ehdr), &addr, 0);
 	if (rc < 0)
 		return rc;
 
@@ -720,7 +722,7 @@ static int parse_crash_elf32_headers(mic_ctx_t *mic_ctx)
 	if (!mic_ctx->elfcorebuf)
 		return -ENOMEM;
 	addr = elfcorehdr_addr;
-	rc = read_from_oldmem(mic_ctx, mic_ctx->elfcorebuf, mic_ctx->elfcorebuf_sz, &addr, 0);
+	rc = (int) read_from_oldmem_sizet(mic_ctx, mic_ctx->elfcorebuf, mic_ctx->elfcorebuf_sz, &addr, 0);
 	if (rc < 0) {
 		kfree(mic_ctx->elfcorebuf);
 		mic_ctx->elfcorebuf = NULL;
@@ -752,7 +754,7 @@ static int parse_crash_elf_headers(mic_ctx_t *mic_ctx)
 	int rc=0;
 
 	addr = elfcorehdr_addr;
-	rc = read_from_oldmem(mic_ctx, e_ident, EI_NIDENT, &addr, 0);
+	rc = (int) read_from_oldmem_sizet(mic_ctx, e_ident, EI_NIDENT, &addr, 0);
 	if (rc < 0)
 		return rc;
 	if (memcmp(e_ident, ELFMAG, SELFMAG) != 0) {
