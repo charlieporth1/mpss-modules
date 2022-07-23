@@ -920,7 +920,8 @@ micvnet_setup(struct net_device *dev)
 
 	/* Initialize the device structure. */
 	dev->netdev_ops = &micvnet_netdev_ops;
-	dev->destructor = free_netdev;
+//	dev->destructor = free_netdev;
+	dev->priv_destructor = free_netdev;
 
 	/* Fill in device structure with ethernet-generic values. */
 	dev->mtu = MICVNET_MAX_MTU;

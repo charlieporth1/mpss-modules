@@ -85,7 +85,7 @@ static void scif_mmu_notifier_release(struct mmu_notifier *mn,
 	return;
 }
 
-static void scif_mmu_notifier_invalidate_page(struct mmu_notifier *mn,
+static void scif_mmu_notifier_invalidate_range(struct mmu_notifier *mn,
 				struct mm_struct *mm,
 				unsigned long start, unsigned long end)
 {

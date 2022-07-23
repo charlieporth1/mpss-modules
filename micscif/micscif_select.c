@@ -43,6 +43,9 @@
 #include <linux/file.h>
 #include <linux/hrtimer.h>
 #include <linux/module.h>
+#include <linux/wait.h>
+#include <linux/time.h>
+#include <linux/time32.h>
 
 #include "mic/micscif.h"
 
@@ -93,10 +96,11 @@ static long __estimate_accuracy(struct timespec *tv)
 	return slack;
 }
 
-static long estimate_accuracy(struct timespec *tv)
+static long estimate_accuracy(const struct timespec *tv)
 {
 	unsigned long ret;
-	struct timespec now;
+	struct timespec64 now64, tv64;
+	struct timespec now32;
 
 	/*
 	 * Realtime tasks get a slack of 0 for obvious reasons.
@@ -105,9 +109,13 @@ static long estimate_accuracy(struct timespec *tv)
 	if (rt_task(current))
 		return 0;
 
-	ktime_get_ts(&now);
-	now = timespec_sub(*tv, now);
-	ret = __estimate_accuracy(&now);
+	ktime_get_ts64(&now64);
+	tv64 = timespec_to_timespec64(*tv);
+
+	now64 = timespec64_sub(tv64, now64);
+	now32 = timespec64_to_timespec(now64);
+
+	ret = __estimate_accuracy(&now32);
 	if (ret < current->timer_slack_ns)
 		return current->timer_slack_ns;
 	return ret;
@@ -394,15 +402,20 @@ static int do_scif_poll(struct scif_pollepd *ufds, unsigned int nfds,
 static struct timespec scif_timespec_add_safe(const struct timespec lhs,
 				  const struct timespec rhs)
 {
-	struct timespec res;
+	struct timespec64 res64, lhs64, rhs64;
+	struct timespec res32;
 
-	set_normalized_timespec(&res, lhs.tv_sec + rhs.tv_sec,
-				lhs.tv_nsec + rhs.tv_nsec);
+	rhs64 = timespec_to_timespec64(rhs);
+	lhs64 = timespec_to_timespec64(lhs);
 
-	if (res.tv_sec < lhs.tv_sec || res.tv_sec < rhs.tv_sec)
-		res.tv_sec = TIME_T_MAX;
+	set_normalized_timespec64(&res64, lhs64.tv_sec + rhs64.tv_sec,
+				lhs64.tv_nsec + rhs64.tv_nsec);
 
-	return res;
+	if (res64.tv_sec < lhs64.tv_sec || res64.tv_sec < rhs64.tv_sec)
+		res64.tv_sec = TIME_T_MAX;
+
+	res32 = timespec64_to_timespec(res64);
+	return res32;
 }
 /**
  * poll_select_set_timeout - helper function to setup the timeout value

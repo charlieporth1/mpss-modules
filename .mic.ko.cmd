@@ -1,0 +1,1 @@
+cmd_/home/charlieporth1/mpss-modules/mic.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/charlieporth1/mpss-modules/mic.ko /home/charlieporth1/mpss-modules/mic.o /home/charlieporth1/mpss-modules/mic.mod.o;  true
