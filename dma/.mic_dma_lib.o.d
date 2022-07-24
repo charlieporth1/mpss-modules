@@ -1,4 +1,4 @@
-mic_dma_lib.o: /home/charlieporth1/mpss-modules/dma/mic_dma_lib.c \
+mic_dma_lib.o: /home/charlesp/mpss-modules/dma/mic_dma_lib.c \
  include/linux/kconfig.h include/generated/autoconf.h \
  include/linux/compiler_types.h include/linux/compiler_attributes.h \
  include/linux/compiler-gcc.h include/linux/module.h include/linux/list.h \
@@ -228,7 +228,7 @@ mic_dma_lib.o: /home/charlieporth1/mpss-modules/dma/mic_dma_lib.c \
  include/linux/context_tracking_state.h arch/x86/include/asm/irq.h \
  arch/x86/include/asm/sections.h include/asm-generic/sections.h \
  include/linux/proc_fs.h include/generated/uapi/linux/version.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif.h \
+ /home/charlesp/mpss-modules/include/mic/micscif.h \
  include/linux/kthread.h include/linux/delay.h \
  arch/x86/include/asm/delay.h include/asm-generic/delay.h \
  include/linux/pci.h include/linux/mod_devicetable.h \
@@ -318,19 +318,19 @@ mic_dma_lib.o: /home/charlieporth1/mpss-modules/dma/mic_dma_lib.c \
  include/linux/hugetlb_inline.h include/linux/poll.h \
  include/uapi/linux/poll.h arch/x86/include/generated/uapi/asm/poll.h \
  include/uapi/asm-generic/poll.h include/uapi/linux/eventpoll.h \
- /home/charlieporth1/mpss-modules/include/scif.h \
- /home/charlieporth1/mpss-modules/include/mic/micbaseaddressdefine.h \
- /home/charlieporth1/mpss-modules/include/mic/micsboxdefine.h \
- /home/charlieporth1/mpss-modules/include/scif_ioctl.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_nodeqp.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_rb.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_nm.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_smpt.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_va_gen.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_va_node.h \
- /home/charlieporth1/mpss-modules/include/mic/mic_dma_api.h \
- /home/charlieporth1/mpss-modules/include/mic/mic_dma_lib.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_rma.h \
+ /home/charlesp/mpss-modules/include/scif.h \
+ /home/charlesp/mpss-modules/include/mic/micbaseaddressdefine.h \
+ /home/charlesp/mpss-modules/include/mic/micsboxdefine.h \
+ /home/charlesp/mpss-modules/include/scif_ioctl.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_nodeqp.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_rb.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_nm.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_smpt.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_va_gen.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_va_node.h \
+ /home/charlesp/mpss-modules/include/mic/mic_dma_api.h \
+ /home/charlesp/mpss-modules/include/mic/mic_dma_lib.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_rma.h \
  include/linux/mmu_notifier.h include/linux/hugetlb.h \
  include/linux/mempolicy.h include/linux/dax.h \
  include/uapi/linux/mempolicy.h arch/x86/include/asm/tlbflush.h \
@@ -338,17 +338,16 @@ mic_dma_lib.o: /home/charlieporth1/mpss-modules/dma/mic_dma_lib.c \
  arch/x86/include/asm/hugetlb.h include/asm-generic/hugetlb.h \
  include/linux/sched/mm.h include/linux/sync_core.h \
  arch/x86/include/asm/sync_core.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_kmem_cache.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_rma_list.h \
- /home/charlieporth1/mpss-modules/include/mic_common.h \
- include/linux/nmi.h arch/x86/include/asm/nmi.h include/linux/irq_work.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_kmem_cache.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_rma_list.h \
+ /home/charlesp/mpss-modules/include/mic_common.h include/linux/nmi.h \
+ arch/x86/include/asm/nmi.h include/linux/irq_work.h \
  arch/x86/include/asm/irq_work.h \
- /home/charlieporth1/mpss-modules/include/mic/bootparams.h \
- /home/charlieporth1/mpss-modules/include/mic/micdboxdefine.h \
- /home/charlieporth1/mpss-modules/include/mic/ringbuffer.h \
- /home/charlieporth1/mpss-modules/include/mic/micvcons.h \
- include/linux/tty.h include/uapi/linux/major.h \
- include/uapi/linux/termios.h \
+ /home/charlesp/mpss-modules/include/mic/bootparams.h \
+ /home/charlesp/mpss-modules/include/mic/micdboxdefine.h \
+ /home/charlesp/mpss-modules/include/mic/ringbuffer.h \
+ /home/charlesp/mpss-modules/include/mic/micvcons.h include/linux/tty.h \
+ include/uapi/linux/major.h include/uapi/linux/termios.h \
  arch/x86/include/generated/uapi/asm/termios.h \
  include/asm-generic/termios.h include/uapi/asm-generic/termios.h \
  arch/x86/include/generated/uapi/asm/termbits.h \
@@ -358,17 +357,17 @@ mic_dma_lib.o: /home/charlieporth1/mpss-modules/dma/mic_dma_lib.c \
  include/linux/cdev.h include/linux/tty_ldisc.h \
  include/uapi/linux/tty_flags.h include/uapi/linux/tty.h \
  include/linux/tty_flip.h \
- /home/charlieporth1/mpss-modules/include/mic/micpsmi.h \
- /home/charlieporth1/mpss-modules/include/mic/io_interface.h \
- /home/charlieporth1/mpss-modules/include/mic/mic_pm.h \
- /home/charlieporth1/mpss-modules/include/mic/io_interface.h \
- /home/charlieporth1/mpss-modules/include/mic/micveth_common.h \
- /home/charlieporth1/mpss-modules/include/mic_interrupts.h \
- /home/charlieporth1/mpss-modules/include/mic_common.h \
- /home/charlieporth1/mpss-modules/include/mic/mic_dma_md.h \
- /home/charlieporth1/mpss-modules/include/mic/mic_sbox_md.h \
- /home/charlieporth1/mpss-modules/include/mic/micsboxdefine.h \
- /home/charlieporth1/mpss-modules/include/mic/compl_buf_ring.h \
- /home/charlieporth1/mpss-modules/include/mic/mic_dma_md.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_smpt.h
+ /home/charlesp/mpss-modules/include/mic/micpsmi.h \
+ /home/charlesp/mpss-modules/include/mic/io_interface.h \
+ /home/charlesp/mpss-modules/include/mic/mic_pm.h \
+ /home/charlesp/mpss-modules/include/mic/io_interface.h \
+ /home/charlesp/mpss-modules/include/mic/micveth_common.h \
+ /home/charlesp/mpss-modules/include/mic_interrupts.h \
+ /home/charlesp/mpss-modules/include/mic_common.h \
+ /home/charlesp/mpss-modules/include/mic/mic_dma_md.h \
+ /home/charlesp/mpss-modules/include/mic/mic_sbox_md.h \
+ /home/charlesp/mpss-modules/include/mic/micsboxdefine.h \
+ /home/charlesp/mpss-modules/include/mic/compl_buf_ring.h \
+ /home/charlesp/mpss-modules/include/mic/mic_dma_md.h \
+ /home/charlesp/mpss-modules/include/mic/micscif.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_smpt.h

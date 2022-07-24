@@ -41,6 +41,7 @@ export MPSS_VERSION := $(MPSS_VERSION)
 export MPSS_BUILDNO := $(MPSS_BUILDNO)
 export MPSS_BUILTBY := $(shell echo "`whoami`@`uname -n`")
 export MPSS_BUILTON := $(shell date +'%F %T %z')
+CONFIG_MODULE_SIG=n
 
 KERNEL_VERSION := $(shell uname -r)
 KERNEL_SRC = /lib/modules/$(KERNEL_VERSION)/build
@@ -104,3 +105,30 @@ kdev_install:
 	$(INSTALL_f) Module.symvers $(DESTDIR)$(kmodinstalldir)/scif.symvers
 	$(INSTALL_d) $(DESTDIR)$(kmodincludedir)
 	$(INSTALL_f) include/scif.h $(DESTDIR)$(kmodincludedir)
+uninstall:
+	rm -rf $(KERNEL_SRC)/mic.ko
+	rm -rf $(KERNEL_SRC)/scif.symvers
+	rm -rf $(KERNEL_SRC)/include/modules/scif.h
+rm:
+	rm -rf $(KERNEL_SRC)/mic.ko
+	rm -rf $(KERNEL_SRC)/scif.symvers
+	rm -rf $(KERNEL_SRC)/include/modules/scif.h
+
+reset: uninstall clean
+clean:
+	rm -rf Module.symvers
+	rm -rf modules.order
+	rm -rf mic.ko
+	rm -rf .mic.ko*
+	rm -rf mic.mod*
+	rm -rf .mic.mod*
+
+	rm -rf *.o
+	rm -rf */*.o
+	rm -rf */*/*.o
+	rm -rf */*/*/*.o
+
+	rm -rf .*.o*
+	rm -rf */.*.o*
+	rm -rf */*/.*.o*
+	rm -rf */*/*/.*.o*

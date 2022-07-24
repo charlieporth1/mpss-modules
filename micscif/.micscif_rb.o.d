@@ -1,10 +1,9 @@
-micscif_rb.o: /home/charlieporth1/mpss-modules/micscif/micscif_rb.c \
+micscif_rb.o: /home/charlesp/mpss-modules/micscif/micscif_rb.c \
  include/linux/kconfig.h include/generated/autoconf.h \
  include/linux/compiler_types.h include/linux/compiler_attributes.h \
  include/linux/compiler-gcc.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif.h \
- include/linux/errno.h include/uapi/linux/errno.h \
- arch/x86/include/generated/uapi/asm/errno.h \
+ /home/charlesp/mpss-modules/include/mic/micscif.h include/linux/errno.h \
+ include/uapi/linux/errno.h arch/x86/include/generated/uapi/asm/errno.h \
  include/uapi/asm-generic/errno.h include/uapi/asm-generic/errno-base.h \
  include/linux/hardirq.h include/linux/preempt.h include/linux/linkage.h \
  include/linux/compiler_types.h include/linux/stringify.h \
@@ -310,19 +309,19 @@ micscif_rb.o: /home/charlieporth1/mpss-modules/micscif/micscif_rb.c \
  include/uapi/linux/poll.h arch/x86/include/generated/uapi/asm/poll.h \
  include/uapi/asm-generic/poll.h include/uapi/linux/eventpoll.h \
  include/generated/uapi/linux/version.h \
- /home/charlieporth1/mpss-modules/include/scif.h \
- /home/charlieporth1/mpss-modules/include/mic/micbaseaddressdefine.h \
- /home/charlieporth1/mpss-modules/include/mic/micsboxdefine.h \
- /home/charlieporth1/mpss-modules/include/scif_ioctl.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_nodeqp.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_rb.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_nm.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_smpt.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_va_gen.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_va_node.h \
- /home/charlieporth1/mpss-modules/include/mic/mic_dma_api.h \
- /home/charlieporth1/mpss-modules/include/mic/mic_dma_lib.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_rma.h \
+ /home/charlesp/mpss-modules/include/scif.h \
+ /home/charlesp/mpss-modules/include/mic/micbaseaddressdefine.h \
+ /home/charlesp/mpss-modules/include/mic/micsboxdefine.h \
+ /home/charlesp/mpss-modules/include/scif_ioctl.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_nodeqp.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_rb.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_nm.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_smpt.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_va_gen.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_va_node.h \
+ /home/charlesp/mpss-modules/include/mic/mic_dma_api.h \
+ /home/charlesp/mpss-modules/include/mic/mic_dma_lib.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_rma.h \
  include/linux/mmu_notifier.h include/linux/hugetlb.h \
  include/linux/mempolicy.h include/linux/dax.h \
  include/uapi/linux/mempolicy.h arch/x86/include/asm/tlbflush.h \
@@ -330,9 +329,9 @@ micscif_rb.o: /home/charlieporth1/mpss-modules/micscif/micscif_rb.c \
  arch/x86/include/asm/hugetlb.h include/asm-generic/hugetlb.h \
  include/linux/sched/mm.h include/linux/sync_core.h \
  arch/x86/include/asm/sync_core.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_kmem_cache.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_rma_list.h \
- /home/charlieporth1/mpss-modules/include/mic/micscif_rb.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_kmem_cache.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_rma_list.h \
+ /home/charlesp/mpss-modules/include/mic/micscif_rb.h \
  include/linux/circ_buf.h include/linux/module.h include/linux/kmod.h \
  include/linux/umh.h include/linux/elf.h arch/x86/include/asm/elf.h \
  arch/x86/include/asm/fsgsbase.h arch/x86/include/asm/vdso.h \
