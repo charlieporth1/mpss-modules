@@ -106,14 +106,16 @@ kdev_install:
 	$(INSTALL_d) $(DESTDIR)$(kmodincludedir)
 	$(INSTALL_f) include/scif.h $(DESTDIR)$(kmodincludedir)
 uninstall:
+	rm -rf /lib/modules/$(KERNEL_VERSION)/extra//mic.ko
 	rm -rf $(KERNEL_SRC)/mic.ko
 	rm -rf $(KERNEL_SRC)/scif.symvers
 	rm -rf $(KERNEL_SRC)/include/modules/scif.h
 rm:
+	rm -rf /lib/modules/$(KERNEL_VERSION)/extra//mic.ko
 	rm -rf $(KERNEL_SRC)/mic.ko
 	rm -rf $(KERNEL_SRC)/scif.symvers
 	rm -rf $(KERNEL_SRC)/include/modules/scif.h
-
+	rmmod mic
 reset: uninstall clean
 clean:
 	rm -rf Module.symvers

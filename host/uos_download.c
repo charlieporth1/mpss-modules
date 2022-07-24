@@ -43,10 +43,16 @@
 #include "mic/mic_virtio.h"
 #include <linux/proc_fs.h>
 #include "mic/micveth.h"
+/*
+ og ctp
+*/
 #include <linux/timekeeping.h>
 #include <linux/ktime.h>
 #include <linux/time64.h>
 #include <linux/time32.h>
+/*
+ og ctp
+*/
 
 #define APERTURE_SEGMENT_SIZE   ((1) * 1024 * 1024 * 1024ULL)
 
@@ -124,6 +130,7 @@ calc_deltaf(mic_ctx_t *mic_ctx)
 	 */
 	/* Need to implement the monotonic/irqsave logic for windows */
 	unsigned long flags;
+	// og ctp
 	struct timespec64 ts1, ts2;
 	struct timespec ts132, ts232;
 	int64_t mono_ns;
@@ -131,18 +138,20 @@ calc_deltaf(mic_ctx_t *mic_ctx)
 	do {
 		local_irq_save(flags);
 		cnt1 = etc_read(mic_ctx->mmio.va);
-		ts132 = timespec64_to_timespec(ts1);
+		// og ctp
 		getrawmonotonic(&ts132);
 		local_irq_restore(flags);
 		mdelay(TIME_DELAY_IN_SEC * 1000);
 		local_irq_save(flags);
 		cnt2 = etc_read(mic_ctx->mmio.va);
-		ts232 = timespec64_to_timespec(ts2);
+		// og ctp
 		getrawmonotonic(&ts232);
 		local_irq_restore(flags);
 		etc_cnt2 = cnt2 - cnt1;
-		// OG CTP 
+		// OG CTP
 		// FIX BROKEN
+		ts1 = timespec_to_timespec64(ts132);
+		ts2 = timespec_to_timespec64(ts232);
 		ts2 = timespec64_sub(ts2, ts1);
 		mono_ns = timespec64_to_ns(&ts2);
 		/* Recalculate etc_cnt2 based on getrawmonotonic */
@@ -819,6 +828,11 @@ exit:
 }
 
 /* Perform hardware reset of the device */
+/*
+	ctp og reset failed
+	broken check
+	if brokren
+*/
 void
 reset_timer(struct timer_list *t)
 //reset_timer(unsigned long arg)
@@ -874,9 +888,10 @@ reset_timer(struct timer_list *t)
 		return;
 	}
 
-//	mic_ctx->boot_timer.function = reset_timer;
+// og ctp
+	mic_ctx->boot_timer.function = reset_timer;
 //	mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
-//	mic_ctx->boot_timer.expires = jiffies + HZ;
+	mic_ctx->boot_timer.expires = jiffies + HZ;
 
 //	add_timer(&mic_ctx->boot_timer);
 	timer_setup(&mic_ctx->boot_timer, reset_timer,0);
@@ -885,10 +900,11 @@ reset_timer(struct timer_list *t)
 void
 adapter_wait_reset(mic_ctx_t *mic_ctx)
 {
-//	mic_ctx->boot_timer.function = reset_timer;
+	// og ctp
+	mic_ctx->boot_timer.function = reset_timer;
 //	mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
-//	mic_ctx->boot_timer.expires = jiffies + HZ;
-//	mic_ctx->boot_start = jiffies;
+	mic_ctx->boot_timer.expires = jiffies + HZ;
+	mic_ctx->boot_start = jiffies;
 
 //	add_timer(&mic_ctx->boot_timer);
 	timer_setup(&mic_ctx->boot_timer, reset_timer,0);
@@ -1077,9 +1093,10 @@ online_timer(struct timer_list *t)
 		return;
 	}
 
-//	mic_ctx->boot_timer.function = online_timer;
+	// og ctp
+	mic_ctx->boot_timer.function = online_timer;
 //	mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
-//	mic_ctx->boot_timer.expires = jiffies + HZ;
+	mic_ctx->boot_timer.expires = jiffies + HZ;
 //	add_timer(&mic_ctx->boot_timer);
         timer_setup(&mic_ctx->boot_timer, online_timer,0);
 	if (!(delay % 5))
@@ -1115,18 +1132,20 @@ boot_timer(struct timer_list *t)
 		timer_restart = (mic_ctx->state != MIC_ONLINE)? true: false;
 
 	if (timer_restart) {
-//		mic_ctx->boot_timer.function = boot_timer;
+	// og ctp
+		mic_ctx->boot_timer.function = boot_timer;
 //		mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
-//		mic_ctx->boot_timer.expires = jiffies + HZ;
+		mic_ctx->boot_timer.expires = jiffies + HZ;
 
 //		add_timer(&mic_ctx->boot_timer);
 		timer_setup(&mic_ctx->boot_timer, boot_timer,0);
 		return;
 	}
 
-//	mic_ctx->boot_timer.function = online_timer;
+// og ctp
+	mic_ctx->boot_timer.function = online_timer;
 //	mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
-//	mic_ctx->boot_timer.expires = jiffies + HZ;
+	mic_ctx->boot_timer.expires = jiffies + HZ;
 //	add_timer(&mic_ctx->boot_timer);
 
 	timer_setup(&mic_ctx->boot_timer, online_timer,0);
@@ -1181,10 +1200,11 @@ ioremap_work(struct work_struct *work)
 int
 adapter_post_boot_device(mic_ctx_t *mic_ctx)
 {
-//	mic_ctx->boot_timer.function = boot_timer;
+// og ctp
+	mic_ctx->boot_timer.function = boot_timer;
 //	mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
-//	mic_ctx->boot_timer.expires = jiffies + HZ;
-//	mic_ctx->boot_start = jiffies;
+	mic_ctx->boot_timer.expires = jiffies + HZ;
+	mic_ctx->boot_start = jiffies;
 
 //	add_timer(&mic_ctx->boot_timer);
 	timer_setup(&mic_ctx->boot_timer, NULL,0);
@@ -1513,10 +1533,11 @@ adapter_init_device(mic_ctx_t *mic_ctx)
 	mutex_init (&mic_ctx->state_lock);
 	init_waitqueue_head(&mic_ctx->resetwq);
 	init_waitqueue_head(&mic_ctx->ioremapwq);
+// CTP OG
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4,15,0)
 		init_timer(&mic_ctx->boot_timer);
 #else
-		timer_setup(&mic_ctx->boot_timer, NULL,0);
+		timer_setup(&mic_ctx->boot_timer, boot_timer, 0);
 #endif
 	if (!(mic_ctx->resetworkq = __mic_create_singlethread_workqueue("RESET WORK")))
 		return -ENOMEM;

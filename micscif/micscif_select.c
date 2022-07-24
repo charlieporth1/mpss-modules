@@ -43,9 +43,15 @@
 #include <linux/file.h>
 #include <linux/hrtimer.h>
 #include <linux/module.h>
+/*
+	og ctp
+*/
 #include <linux/wait.h>
 #include <linux/time.h>
 #include <linux/time32.h>
+/*
+	og ctp
+*/
 
 #include "mic/micscif.h"
 
@@ -96,7 +102,7 @@ static long __estimate_accuracy(struct timespec *tv)
 	return slack;
 }
 
-static long estimate_accuracy(const struct timespec *tv)
+static long estimate_accuracy(struct timespec *tv)
 {
 	unsigned long ret;
 	struct timespec64 now64, tv64;

@@ -57,16 +57,29 @@ extern "C" {
 #include <linux/timer.h>
 #include <linux/irqflags.h>
 #include <linux/time.h>
+/*
+	og ctp
+*/
 #include <linux/time32.h>
 #include <linux/time64.h>
+#include <asm-generic/delay.h>
+/*
+	og ctp
+*/
 #include <linux/spinlock.h>
 #include <linux/mutex.h>
 #include <linux/semaphore.h>
 #include <linux/kthread.h>
 #include <linux/sched.h>
+/*
+	og ctp
+*/
 #include <linux/delay.h>
 #include <linux/wait.h>
 #include <asm/bug.h>
+/*
+	og ctp
+*/
 #include <linux/pci.h>
 #include <linux/device.h>
 #include <linux/fs.h>
