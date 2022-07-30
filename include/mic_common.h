@@ -718,7 +718,7 @@ extern char *micstates[];
 static __always_inline void
 mic_setstate(mic_ctx_t *mic_ctx, enum mic_status newstate)
 {
-	printk("mic%d: Transition from state %s to %s\n", mic_ctx->bi_id, 
+	printk("mic%d: Transition from state %s to %s\n", mic_ctx->bi_id,
 		    micstates[mic_ctx->state], micstates[newstate]);
 	mic_ctx->state = newstate;
 	spin_lock_bh(&mic_ctx->sysfs_lock);

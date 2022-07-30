@@ -628,6 +628,7 @@ mic_init(void)
 	micvcons_create(mic_data.dd_numdevs);
 #endif
 
+	printk("mic: CTP IS A KERNEL OG number of devices detected %d \n", mic_data.dd_numdevs);
 	/* Initialize Data structures for PM Disconnect */
 	ret = micpm_disconn_init(mic_data.dd_numdevs + 1);
 	if (ret)
@@ -644,9 +645,11 @@ mic_init(void)
 		/* Dont fail driver load due to PM QoS API. Fall through */
 	}
 #endif
+	printk("mic%d: CTP IS A KERNEL OG device %d \n", mic_data.dd_numdevs);
 	return 0;
 
 clean_unregister:
+	printk("mic: CTP IS A KERNEL OG unregisster %d \n", mic_data.dd_numdevs);
 	device_destroy(mic_lindata.dd_class, mic_lindata.dd_dev + 1);
 	device_destroy(mic_lindata.dd_class, mic_lindata.dd_dev);
 	class_destroy(mic_lindata.dd_class);
@@ -654,8 +657,10 @@ clean_unregister:
 	unregister_pm_notifier(&mic_pm_notifer);
 init_free_region:
 	unregister_chrdev_region(mic_lindata.dd_dev, MAX_DLDR_MINORS);
+	printk("mic: CTP IS A KERNEL OG region %d \n", mic_data.dd_numdevs);
 init_free_ports:
 	micpm_uninit();
+	printk("mic: CTP IS A KERNEL OG ports %d \n", mic_data.dd_numdevs);
 	return ret;
 }
 

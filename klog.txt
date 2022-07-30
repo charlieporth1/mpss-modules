@@ -1,0 +1,1 @@
+/root/Programs/printk.sh: line 25: klogd: command not found

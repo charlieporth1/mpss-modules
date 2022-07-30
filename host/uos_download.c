@@ -139,13 +139,15 @@ calc_deltaf(mic_ctx_t *mic_ctx)
 		local_irq_save(flags);
 		cnt1 = etc_read(mic_ctx->mmio.va);
 		// og ctp
-		getrawmonotonic(&ts132);
+//		ktime_get_raw_ts64(&ts1);
+         	getrawmonotonic(&ts132);
 		local_irq_restore(flags);
 		mdelay(TIME_DELAY_IN_SEC * 1000);
 		local_irq_save(flags);
 		cnt2 = etc_read(mic_ctx->mmio.va);
 		// og ctp
 		getrawmonotonic(&ts232);
+//		ktime_get_raw_ts64(&ts2);
 		local_irq_restore(flags);
 		etc_cnt2 = cnt2 - cnt1;
 		// OG CTP
@@ -154,6 +156,9 @@ calc_deltaf(mic_ctx_t *mic_ctx)
 		ts2 = timespec_to_timespec64(ts232);
 		ts2 = timespec64_sub(ts2, ts1);
 		mono_ns = timespec64_to_ns(&ts2);
+		// CTP OG 64bit to 32bit
+//		mono_ns = mono_ns / 2147483647;
+
 		/* Recalculate etc_cnt2 based on getrawmonotonic */
 		etc_cnt2 = (etc_cnt2 * TIME_DELAY_IN_SEC * 1000 * 1000 * 1000) / mono_ns;
 		deltaf = ( ETC_CLK_FREQ * (etc_cnt2 - etc_cnt1)) / etc_cnt1;
@@ -199,6 +204,8 @@ void
 calculate_etc_compensation(mic_ctx_t *mic_ctx)
 {
 	if (mic_ctx->bi_family == FAMILY_KNC) {
+		struct etc_comp;
+		etc_comp = mic_ctx->etc_comp;
 		if (!etc_comp)
 			etc_comp = calc_deltaf(mic_ctx);
 		mic_ctx->etc_comp = etc_comp;
@@ -833,9 +840,9 @@ exit:
 	broken check
 	if brokren
 */
+//reset_timer(unsigned long arg)
 void
 reset_timer(struct timer_list *t)
-//reset_timer(unsigned long arg)
 {
 	mic_ctx_t *mic_ctx = (mic_ctx_t *)t;
 	uint32_t scratch2 = 0;
@@ -893,8 +900,8 @@ reset_timer(struct timer_list *t)
 //	mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
 	mic_ctx->boot_timer.expires = jiffies + HZ;
 
+	timer_setup(&mic_ctx->boot_timer, reset_timer, 0);
 //	add_timer(&mic_ctx->boot_timer);
-	timer_setup(&mic_ctx->boot_timer, reset_timer,0);
 }
 
 void
@@ -906,8 +913,8 @@ adapter_wait_reset(mic_ctx_t *mic_ctx)
 	mic_ctx->boot_timer.expires = jiffies + HZ;
 	mic_ctx->boot_start = jiffies;
 
+	timer_setup(&mic_ctx->boot_timer, reset_timer, 0);
 //	add_timer(&mic_ctx->boot_timer);
-	timer_setup(&mic_ctx->boot_timer, reset_timer,0);
 }
 
 void
@@ -917,6 +924,7 @@ adapter_reset(mic_ctx_t *mic_ctx, int wait_reset, int reattempt)
 	mutex_lock(&mic_ctx->state_lock);
 	/* TODO: check state for lost node as well once design is done */
 	if ((mic_ctx->state == MIC_RESET || mic_ctx->state == MIC_READY) && (reattempt == 0)) {
+//	if ((mic_ctx->state == MIC_RESET) && (reattempt == 0)) {
 		if (wait_reset == 0) {
 			mic_setstate(mic_ctx, MIC_INVALID);
 			del_timer_sync(&mic_ctx->boot_timer);
@@ -1097,8 +1105,9 @@ online_timer(struct timer_list *t)
 	mic_ctx->boot_timer.function = online_timer;
 //	mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
 	mic_ctx->boot_timer.expires = jiffies + HZ;
+
+        timer_setup(&mic_ctx->boot_timer, online_timer, 0);
 //	add_timer(&mic_ctx->boot_timer);
-        timer_setup(&mic_ctx->boot_timer, online_timer,0);
 	if (!(delay % 5))
 		printk("Waiting for MIC %d boot %lld\n", mic_ctx->bi_id, delay);
 }
@@ -1137,8 +1146,8 @@ boot_timer(struct timer_list *t)
 //		mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
 		mic_ctx->boot_timer.expires = jiffies + HZ;
 
+		timer_setup(&mic_ctx->boot_timer, boot_timer, 0);
 //		add_timer(&mic_ctx->boot_timer);
-		timer_setup(&mic_ctx->boot_timer, boot_timer,0);
 		return;
 	}
 
@@ -1146,9 +1155,10 @@ boot_timer(struct timer_list *t)
 	mic_ctx->boot_timer.function = online_timer;
 //	mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
 	mic_ctx->boot_timer.expires = jiffies + HZ;
-//	add_timer(&mic_ctx->boot_timer);
 
 	timer_setup(&mic_ctx->boot_timer, online_timer,0);
+//	add_timer(&mic_ctx->boot_timer);
+
 	printk("MIC %d Network link is up\n", mic_ctx->bi_id);
 	schedule_work(&mic_ctx->boot_ws);
 }
@@ -1206,8 +1216,8 @@ adapter_post_boot_device(mic_ctx_t *mic_ctx)
 	mic_ctx->boot_timer.expires = jiffies + HZ;
 	mic_ctx->boot_start = jiffies;
 
+	timer_setup(&mic_ctx->boot_timer, boot_timer, 0);
 //	add_timer(&mic_ctx->boot_timer);
-	timer_setup(&mic_ctx->boot_timer, NULL,0);
 	return 0;
 }
 
@@ -1537,7 +1547,7 @@ adapter_init_device(mic_ctx_t *mic_ctx)
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4,15,0)
 		init_timer(&mic_ctx->boot_timer);
 #else
-		timer_setup(&mic_ctx->boot_timer, boot_timer, 0);
+		timer_setup(&mic_ctx->boot_timer, NULL, 0);
 #endif
 	if (!(mic_ctx->resetworkq = __mic_create_singlethread_workqueue("RESET WORK")))
 		return -ENOMEM;
