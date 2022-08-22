@@ -155,6 +155,7 @@ __used __section(__versions) = {
 	{ 0x69512d2b, "device_create" },
 	{ 0x9545af6d, "tasklet_init" },
 	{ 0xc38c83b8, "mod_timer" },
+	{ 0x24d273d1, "add_timer" },
 	{ 0x7e240874, "kill_pid" },
 	{ 0x3c6cb2e5, "simple_attr_release" },
 	{ 0x2072ee9b, "request_threaded_irq" },
@@ -270,4 +271,4 @@ __used __section(__versions) = {
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "B45284839A1885237307849");
+MODULE_INFO(srcversion, "E2CE1FCD30A3A6A440F3FAF");

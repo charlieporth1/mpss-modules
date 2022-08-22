@@ -60,6 +60,7 @@ extern "C" {
 /*
 	og ctp
 */
+#include <linux/ktime.h>
 #include <linux/time32.h>
 #include <linux/time64.h>
 #include <asm-generic/delay.h>
@@ -269,7 +270,23 @@ extern "C" {
 #define LINUX_INTERFACE_VERSION "1.0"
 #define WINDOWS_INTERFACE_VERSION "1.0"
 
+/*
+typedef struct _timer_list_t {
+        // All fields that change during normal runtime grouped to the
+        // same cacheline
+        struct hlist_node       entry;
+        unsigned long           expires;
+        void                    (*function)(struct timer_list *);
+        u32                     flags;
 
+        unsigned long           data;
+        timer_list;
+//        mic_ctx_t               mdata;
+#ifdef CONFIG_LOCKDEP
+        struct lockdep_map      lockdep_map;
+#endif
+} timer_list;
+*/
 // OG CTP BVRESAK
 #define page_cache_get(page) get_page(page)
 #define page_cache_release(page) put_page(page)

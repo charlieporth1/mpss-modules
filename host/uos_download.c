@@ -91,6 +91,8 @@ extern bool mic_watchdog_auto_reboot;
 
 static int64_t etc_comp = 0;
 
+
+
 static uint64_t
 etc_read(uint8_t *mmio_va)
 {
@@ -129,6 +131,7 @@ calc_deltaf(mic_ctx_t *mic_ctx)
 	 * deltaf_in_ppm = ((etc_count2 - etc_count1) * 10 ^ 6) / etc_count1
 	 */
 	/* Need to implement the monotonic/irqsave logic for windows */
+	printk("CTP RESET CTP KERNEL OG calc_deltaf 1");
 	unsigned long flags;
 	// og ctp
 	struct timespec64 ts1, ts2;
@@ -136,6 +139,7 @@ calc_deltaf(mic_ctx_t *mic_ctx)
 	int64_t mono_ns;
 	int i = 0;
 	do {
+		printk("CTP RESET CTP KERNEL OG calc_deltaf start %d", i);
 		local_irq_save(flags);
 		cnt1 = etc_read(mic_ctx->mmio.va);
 		// og ctp
@@ -150,18 +154,27 @@ calc_deltaf(mic_ctx_t *mic_ctx)
 //		ktime_get_raw_ts64(&ts2);
 		local_irq_restore(flags);
 		etc_cnt2 = cnt2 - cnt1;
+		printk("CTP RESET CTP KERNEL OG calc_deltaf middle %d", i);
 		// OG CTP
 		// FIX BROKEN
 		ts1 = timespec_to_timespec64(ts132);
 		ts2 = timespec_to_timespec64(ts232);
+
+		printk("CTP RESET CTP KERNEL OG calc_deltaf middle part 1 %d", i);
 		ts2 = timespec64_sub(ts2, ts1);
 		mono_ns = timespec64_to_ns(&ts2);
 		// CTP OG 64bit to 32bit
+		printk("CTP RESET CTP KERNEL OG calc_deltaf middle part 2 %d", i);
 //		mono_ns = mono_ns / 2147483647;
 
 		/* Recalculate etc_cnt2 based on getrawmonotonic */
+		printk("CTP RESET CTP KERNEL OG calc_deltaf middle part 3 %d", i);
 		etc_cnt2 = (etc_cnt2 * TIME_DELAY_IN_SEC * 1000 * 1000 * 1000) / mono_ns;
+
+		printk("CTP RESET CTP KERNEL OG calc_deltaf middle part 4 %d", i);
 		deltaf = ( ETC_CLK_FREQ * (etc_cnt2 - etc_cnt1)) / etc_cnt1;
+
+		printk("CTP RESET CTP KERNEL OG calc_deltaf middle part 5 %d", i);
 		deltaf_in_ppm = (1000 * 1000 * (etc_cnt2 - etc_cnt1)) / etc_cnt1;
 		i++;
 		/*
@@ -172,6 +185,7 @@ calc_deltaf(mic_ctx_t *mic_ctx)
 		 * i) mmio traffic cauing variable delays for mmio read
 		 * ii) NMIs affecting this code
 		 */
+		printk("CTP RESET CTP KERNEL OG calc_deltaf end %d", i);
 	} while (i < 10 && (deltaf_in_ppm > 2700 || deltaf_in_ppm < -2700));
 
 	pr_debug("etc deltaf: %lld\n", deltaf);
@@ -204,9 +218,10 @@ void
 calculate_etc_compensation(mic_ctx_t *mic_ctx)
 {
 	if (mic_ctx->bi_family == FAMILY_KNC) {
-		struct etc_comp;
+		int64_t etc_comp;
 		etc_comp = mic_ctx->etc_comp;
 		if (!etc_comp)
+			 printk("CTP RESET CTP KERNEL OG calculate_etc_compensation 1");
 			etc_comp = calc_deltaf(mic_ctx);
 		mic_ctx->etc_comp = etc_comp;
 	}
@@ -841,20 +856,43 @@ exit:
 	if brokren
 */
 //reset_timer(unsigned long arg)
+//reset_timer(mic_ctx_t *arg)
 void
-reset_timer(struct timer_list *t)
+reset_timer(struct timer_list *arg)
 {
-	mic_ctx_t *mic_ctx = (mic_ctx_t *)t;
+	printk("mic: CTP OG reset_timer start arg %lu", (unsigned long)arg);
+/*
+	printk("mic: CTP OG reset_timer start arg %d", (u32)(arg->flags));
+	unsigned long  tmp_flag = (unsigned long) arg->flags;
+	printk("mic: CTP OG reset_timer start tmp_flag %lu", tmp_flag);
+*/
+	mic_ctx_t *mic_ctx = (mic_ctx_t *)(unsigned long)arg;
+	printk("mic: CTP OG reset_timer middle 1 mic_ctx %lu", (unsigned long)mic_ctx);
+
 	uint32_t scratch2 = 0;
-	uint32_t postcode = mic_getpostcode(mic_ctx);
+	printk("mic: CTP OG reset_timer middle 2");
+	/*
+	return;
+	  CTP CRASH FILE ISSUE
+	  PROB DUE TO MIC_CTX not being mic_ctx and issue there
+	  prob mic_ctx is timer arg
+	  need to check
+*/
+	mic_ctx->reset_count++;
+
+	uint32_t postcode = 0x0;
+
+
+//	uint32_t postcode = mic_getpostcode(mic_ctx);
+	printk("mic: CTP OG reset_timer middle 3 postcode %s", postcode);
 
 	printk("mic%d: Resetting (Post Code %c%c)\n", mic_ctx->bi_id, 
 		    postcode & 0xff, (postcode >> 8) & 0xff);
-	mic_ctx->reset_count++;
 
 	/* Assuming that the bootstrap takes around 90 seconds to reset,
 	 * we fail after 300 seconds, thus allowing 3 attempts to reset
 	 */
+	printk("mic: CTP OG reset_timer middle 4");
 	if (mic_ctx->reset_count == RESET_FAIL_TIME ||
 		!postcode || 0xffffffff == postcode || mic_ctx->state == MIC_RESETFAIL) {
 		mic_ctx->reset_count = 0;
@@ -865,6 +903,7 @@ reset_timer(struct timer_list *t)
 		return;
 	}
 
+	printk("mic: CTP OG reset_timer middle 5");
 	/* check for F2 or F4 error codes from bootstrap */
 	if ((postcode == RESET_FAILED_F2) || (postcode == RESET_FAILED_F4)) {
 		if (mic_ctx->resetworkq) {
@@ -877,7 +916,9 @@ reset_timer(struct timer_list *t)
 		}
 	}
 
+	printk("mic: CTP OG reset_timer middle 6");
 	/* checking if bootstrap is ready or still resetting */
+//	mic_setstate(mic_ctx, MIC_READY);
 	scratch2 = SBOX_READ(mic_ctx->mmio.va, SBOX_SCRATCH2);
 	if (SCRATCH2_DOWNLOAD_STATUS(scratch2)) {
 		mic_ctx->boot_start = 0;
@@ -895,26 +936,45 @@ reset_timer(struct timer_list *t)
 		return;
 	}
 
+	// OG CTp
+//	del_timer(&mic_ctx->boot_timer);
+//	mutex_unlock(&mic_ctx->state_lock);
+
 // og ctp
+//	del_timer(&mic_ctx->boot_timer);
 	mic_ctx->boot_timer.function = reset_timer;
 //	mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
 	mic_ctx->boot_timer.expires = jiffies + HZ;
 
 	timer_setup(&mic_ctx->boot_timer, reset_timer, 0);
-//	add_timer(&mic_ctx->boot_timer);
+//	mod_timer(&mic_ctx->boot_timer, jiffies + HZ);
+	add_timer(&mic_ctx->boot_timer);
+//	add_timer(reset_timer);
 }
 
 void
 adapter_wait_reset(mic_ctx_t *mic_ctx)
 {
 	// og ctp
+	printk("mic: CTP OG adapter_wait_reset start");
+//	del_timer(&mic_ctx->boot_timer);
 	mic_ctx->boot_timer.function = reset_timer;
-//	mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
+//	unsigned long long_mic  = mic_ctx;
+//	mic_ctx->boot_timer.flags = (u32)mic_ctx;
+//	mic_ctx->boot_timer.mdata = mic_ctx;
 	mic_ctx->boot_timer.expires = jiffies + HZ;
 	mic_ctx->boot_start = jiffies;
 
+	printk("mic: CTP OG adapter_wait_reset middle 1 mic_ctx %lu", (unsigned long)mic_ctx);
 	timer_setup(&mic_ctx->boot_timer, reset_timer, 0);
-//	add_timer(&mic_ctx->boot_timer);
+//	mod_timer(&mic_ctx->boot_timer, jiffies + HZ);
+	printk("mic: CTP OG adapter_wait_reset middle 2");
+	add_timer(&mic_ctx->boot_timer);
+	printk("mic: CTP OG adapter_wait_reset end");
+	printk("mic: CTP OG adapter_wait_reset mic_ctx %lu", (unsigned long)mic_ctx);
+//	printk("mic: CTP OG adapter_wait_reset mic_ctx %d", (u32)mic_ctx);
+	printk("mic: CTP OG adapter_wait_reset mic_ctx %lu", (unsigned long)&mic_ctx->boot_timer);
+//	reset_timer(mic_ctx);
 }
 
 void
@@ -936,6 +996,7 @@ adapter_reset(mic_ctx_t *mic_ctx, int wait_reset, int reattempt)
 	}
 
 	mic_setstate(mic_ctx, MIC_RESET);
+	printk("CTP RESET CTP KERNEL OG");
 
 	mutex_unlock(&mic_ctx->state_lock);
 
@@ -958,6 +1019,10 @@ adapter_reset(mic_ctx_t *mic_ctx, int wait_reset, int reattempt)
 
 	/* At least of KNF it seems we really want to delay at least 1 second */
 	/* after touching reset to prevent a lot of problems. */
+	msleep(1000);
+	msleep(1000);
+	msleep(1000);
+	msleep(1000);
 	msleep(1000);
 
 	if (!wait_reset) {
@@ -1087,9 +1152,9 @@ adapter_remove(mic_ctx_t *mic_ctx)
 
 static void
 //online_timer(unsigned long arg)
-online_timer(struct timer_list *t)
+online_timer(struct timer_list *arg)
 {
-	mic_ctx_t *mic_ctx = (mic_ctx_t *)t;
+	mic_ctx_t *mic_ctx = (mic_ctx_t *)arg;
 	uint64_t delay = (jiffies - mic_ctx->boot_start) / HZ;
 
 	if (mic_ctx->state == MIC_ONLINE)
@@ -1106,17 +1171,19 @@ online_timer(struct timer_list *t)
 //	mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
 	mic_ctx->boot_timer.expires = jiffies + HZ;
 
+
         timer_setup(&mic_ctx->boot_timer, online_timer, 0);
+//	mod_timer(&mic_ctx->boot_timer, jiffies + HZ);
 //	add_timer(&mic_ctx->boot_timer);
 	if (!(delay % 5))
 		printk("Waiting for MIC %d boot %lld\n", mic_ctx->bi_id, delay);
 }
 
 static void
-boot_timer(struct timer_list *t)
+boot_timer(struct timer_list *arg)
 //boot_timer(unsigned long arg)
 {
-	mic_ctx_t *mic_ctx = (mic_ctx_t *)t;
+	mic_ctx_t *mic_ctx = (mic_ctx_t *)arg;
 	struct micvnet_info *vnet_info = (struct micvnet_info *) mic_ctx->bi_vethinfo;
 	uint64_t delay = (jiffies - mic_ctx->boot_start) / HZ;
 	bool timer_restart = false;
@@ -1147,6 +1214,7 @@ boot_timer(struct timer_list *t)
 		mic_ctx->boot_timer.expires = jiffies + HZ;
 
 		timer_setup(&mic_ctx->boot_timer, boot_timer, 0);
+//		mod_timer(&mic_ctx->boot_timer, jiffies + HZ);
 //		add_timer(&mic_ctx->boot_timer);
 		return;
 	}
@@ -1157,6 +1225,7 @@ boot_timer(struct timer_list *t)
 	mic_ctx->boot_timer.expires = jiffies + HZ;
 
 	timer_setup(&mic_ctx->boot_timer, online_timer,0);
+//	mod_timer(&mic_ctx->boot_timer, jiffies + HZ);
 //	add_timer(&mic_ctx->boot_timer);
 
 	printk("MIC %d Network link is up\n", mic_ctx->bi_id);
@@ -1211,13 +1280,18 @@ int
 adapter_post_boot_device(mic_ctx_t *mic_ctx)
 {
 // og ctp
+//	del_timer()
+	printk("mic %d: CTP Kernel OG adapter_post_boot_device start", mic_ctx->bi_id);
 	mic_ctx->boot_timer.function = boot_timer;
 //	mic_ctx->boot_timer.data = (unsigned long)mic_ctx;
 	mic_ctx->boot_timer.expires = jiffies + HZ;
 	mic_ctx->boot_start = jiffies;
 
 	timer_setup(&mic_ctx->boot_timer, boot_timer, 0);
+//	mod_timer(&mic_ctx->boot_timer, jiffies + HZ);
+	printk("mic %d: CTP Kernel OG adapter_post_boot_device middle", mic_ctx->bi_id);
 //	add_timer(&mic_ctx->boot_timer);
+	printk("mic %d: CTP Kernel OG adapter_post_boot_device end", mic_ctx->bi_id);
 	return 0;
 }
 
@@ -1538,6 +1612,7 @@ adapter_init_device(mic_ctx_t *mic_ctx)
 
 	spin_lock_init(&mic_ctx->sysfs_lock);
 	mic_setstate(mic_ctx, MIC_RESET);
+	printk("CTP RESET CTP KERNEL OG adapter_init");
 	mic_ctx->mode = MODE_NONE;
 	mic_ctx->reset_count = 0;
 	mutex_init (&mic_ctx->state_lock);
@@ -1651,6 +1726,10 @@ adapter_init_device(mic_ctx_t *mic_ctx)
 
 	/* Determine the amount of compensation that needs to be applied to MIC's ETC timer */
 	calculate_etc_compensation(mic_ctx);
+// OG CTP KERN
+//	printk("CTP RESET CTP KERNEL OG adapter_init READY");
+//	mic_setstate(mic_ctx, MIC_READY);
+//	printk("CTP RESET CTP KERNEL OG adapter_init READY");
 
 	return 0;
 

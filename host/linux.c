@@ -645,7 +645,7 @@ mic_init(void)
 		/* Dont fail driver load due to PM QoS API. Fall through */
 	}
 #endif
-	printk("mic%d: CTP IS A KERNEL OG device %d \n", mic_data.dd_numdevs);
+	printk("mic: CTP IS A KERNEL OG last bit\n");
 	return 0;
 
 clean_unregister:
