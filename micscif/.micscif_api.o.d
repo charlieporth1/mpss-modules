@@ -23,7 +23,7 @@ micscif_api.o: /home/charlesp/mpss-modules/micscif/micscif_api.c \
  arch/x86/include/asm/linkage.h include/linux/seqlock.h \
  include/linux/spinlock.h include/linux/typecheck.h \
  include/linux/preempt.h include/linux/list.h include/linux/poison.h \
- include/linux/kernel.h /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
+ include/linux/kernel.h /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
  include/linux/limits.h include/uapi/linux/limits.h \
  include/linux/bitops.h include/linux/bits.h \
  arch/x86/include/asm/bitops.h arch/x86/include/asm/rmwcc.h \

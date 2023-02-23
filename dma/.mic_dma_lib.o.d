@@ -14,7 +14,7 @@ mic_dma_lib.o: /home/charlesp/mpss-modules/dma/mic_dma_lib.c \
  arch/x86/include/uapi/asm/posix_types_64.h \
  include/uapi/asm-generic/posix_types.h include/linux/poison.h \
  include/linux/const.h include/uapi/linux/const.h include/linux/kernel.h \
- /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h include/linux/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h include/linux/limits.h \
  include/uapi/linux/limits.h include/linux/linkage.h \
  include/linux/stringify.h include/linux/export.h \
  include/linux/compiler.h arch/x86/include/asm/barrier.h \

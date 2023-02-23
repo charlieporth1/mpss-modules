@@ -19,6 +19,7 @@ endif
 # what we're used to in terms of validation and performance analysis. We
 # should probably get rid of this, though.
 subdir-ccflags-y += -O2
+#subdir-ccflags-y += -std=c90
 
 # Makes it easy to inject "-Werror" from the environment
 subdir-ccflags-y += $(KERNWARNFLAGS)

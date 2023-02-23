@@ -939,6 +939,7 @@ static struct rtnl_link_ops micvnet_link_ops __read_mostly = {
 static int
 micvnet_init_hw_regs(struct micvnet_info *vnet_info)
 {
+	printk("mic: micvnet_init_hw_regs init ");
 #ifdef HOST
 	mic_ctx_t *mic_ctx = vnet_info->mic_ctx;
 
@@ -973,6 +974,7 @@ micvnet_deinit_hw_regs(struct micvnet_info *vnet_info)
 static int
 micvnet_init_interrupts(struct micvnet_info *vnet_info)
 {
+	printk("mic: micvnet_init_interrupts init ");
 	mic_ctx_t *mic_ctx = vnet_info->mic_ctx;
 	int ret = 0;
 
@@ -996,8 +998,10 @@ micvnet_init_interrupts(struct micvnet_info *vnet_info)
 	INIT_WORK(&vnet_info->vi_ws_stop, micvnet_stop_ws);
 	INIT_WORK(&vnet_info->vi_ws_start, micvnet_start_ws);
 #ifdef HOST
+	printk("mic: micvnet_init_interrupts mic_reg_irqhandler start");
 	if ((ret = mic_reg_irqhandler(mic_ctx, 3, "Host DoorBell 3",
 				      micvnet_host_doorbell_intr_handler))) {
+	printk("mic: micvnet_init_interrupts mic_reg_irqhandler end");
 #else
 	if ((ret = request_irq(get_sbox_irq(VNET_SBOX_INT_IDX),
 				micvnet_host_intr_handler, IRQF_DISABLED,
@@ -1006,9 +1010,11 @@ micvnet_init_interrupts(struct micvnet_info *vnet_info)
 		printk(KERN_ERR "%s: interrupt registration failed\n", __func__);
 		goto err_exit_destroy_workqueue;
 	}
+	printk("mic: micvnet_init_interrupts end");
 	return 0;
 
 err_exit_destroy_workqueue:
+	printk("mic: micvnet_init_interrupts destroy");
 	destroy_workqueue(vnet_info->vi_wq);
 	return ret;
 }

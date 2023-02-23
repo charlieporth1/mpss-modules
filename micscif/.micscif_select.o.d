@@ -2,7 +2,7 @@ micscif_select.o: /home/charlesp/mpss-modules/micscif/micscif_select.c \
  include/linux/kconfig.h include/generated/autoconf.h \
  include/linux/compiler_types.h include/linux/compiler_attributes.h \
  include/linux/compiler-gcc.h include/linux/kernel.h \
- /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h include/linux/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h include/linux/limits.h \
  include/uapi/linux/limits.h include/linux/types.h \
  include/uapi/linux/types.h arch/x86/include/generated/uapi/asm/types.h \
  include/uapi/asm-generic/types.h include/asm-generic/int-ll64.h \

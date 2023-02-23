@@ -425,6 +425,7 @@ micveth_exit_int(void)
 			packet = &veth_info->vi_rx_desc[idx];
 #if WA_UNMAP_AT_RMMOD
 			mic_ctx_unmap_single(veth_to_ctx(veth_info), packet->pd_phys, packet->pd_skb->len);
+	printk("mic: CTP micveth_start_int init ")
 #endif
 			kfree_skb(packet->pd_skb);
 		}
@@ -437,6 +438,7 @@ micveth_exit_int(void)
 static int
 micveth_start_int(mic_ctx_t *mic_ctx)
 {
+	printk("mic: CTP micveth_start_int init ");
 	micveth_info_t *veth_info = &micveth.lv_info[mic_ctx->bi_id];
 
 	// Eventuall (very soon) most of the descriptor allocation for a board will be done here
@@ -469,9 +471,12 @@ micveth_start_int(mic_ctx_t *mic_ctx)
 		INIT_WORK(&veth_info->vi_bh, micvnet_intr_bh_handler);
 
 		// Install interrupt handler on doorbell 3
+		printk("mic: CTP micveth_start_int mic_reg_irqhandler start");
 		mic_reg_irqhandler(mic_ctx, 3, "Host DoorBell 3",
 				   micvnet_host_doorbell_intr_handler);
+		printk("mic: CTP micveth_start_int mic_reg_irqhandler end");
 	}
+	printk("mic: CTP micveth_start_int done");
 
 	return 0;
 }

@@ -176,6 +176,7 @@ int micscif_setup_host_qp(mic_ctx_t *mic_ctx, struct micscif_dev *scifdev);
 void
 micscif_probe(mic_ctx_t *mic_ctx)
 {
+	printk("mic: micscif_probe init");
 	struct micscif_dev *scifdev = &scif_dev[mic_ctx->bi_id + 1];
 
 	// The host needs to keep track of scif_dev interfaces for all boards in
@@ -205,8 +206,10 @@ micscif_probe(mic_ctx_t *mic_ctx)
 	 * Register function for doorbell 0 which will
 	 * basically kick off the workqueue.
 	 */
+	printk("mic: micscif_probe mic_reg_irqhandler start");
 	mic_reg_irqhandler(mic_ctx, 0, "SCIF DoorBell 0",
 			   micscif_host_doorbell_intr_handler);
+	printk("mic: micscif_probe mic_reg_irqhandler end");
 }
 
 void

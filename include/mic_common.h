@@ -63,7 +63,7 @@ extern "C" {
 #include <linux/ktime.h>
 #include <linux/time32.h>
 #include <linux/time64.h>
-#include <asm-generic/delay.h>
+#include <linux/delay.h>
 /*
 	og ctp
 */

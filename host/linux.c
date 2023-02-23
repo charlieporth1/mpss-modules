@@ -245,6 +245,7 @@ extern struct bin_attribute mic_psmi_ptes_attr;
 static int
 mic_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
 {
+	printk("mic: mic_probe init");
 	int brdnum = mic_data.dd_numdevs;
 	int err = 0;
 	bd_info_t *bd_info;
@@ -354,22 +355,29 @@ mic_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
 			goto probe_unmapaper;
 		}
 
+	printk("mic: mic_probe adapter_probe start");
 	adapter_probe(&bd_info->bi_ctx);
+	printk("mic: mic_probe adapter_probe end");
 
 	if (mic_ctx->bi_psmi.enabled) {
+		printk("mic: mic_probe create sysfs 0");
 		err = sysfs_create_group(&mic_ctx->bd_info->bi_sysfsdev->kobj,
 						&psmi_attr_group);
+		printk("mic: mic_probe create sysfs 1 %s", err);
 		err = device_create_bin_file(mic_ctx->bd_info->bi_sysfsdev,
 						&mic_psmi_ptes_attr);
+		printk("mic: mic_probe create sysfs 2 %s", err);
 	}
-
+	printk("mic: mic_probe adapter_wait_reset start");
 	adapter_wait_reset(mic_ctx);
+	printk("mic: mic_probe adapter_wait_reset end");
 
-	// Adding a board instance so increment the total number of MICs in the system.
+	// Adding a board instaance so increment the total number of MICs in the system.
 	list_add_tail(&bd_info->bi_list, &mic_data.dd_bdlist);
 	mic_data.dd_numdevs++;
 	printk("mic_probe %d:%d:%d as board #%d\n", pdev->bus->number,
 	       PCI_SLOT(pdev->devfn), PCI_FUNC(pdev->devfn), brdnum);
+	printk("mic: mic_probe end");
 	return 0;
 
 probe_unmapaper:

@@ -1002,6 +1002,7 @@ micpm_stop(mic_ctx_t *mic_ctx) {
 int
 pm_start_device(mic_ctx_t *mic_ctx)
 {
+	printk("mic: pm_start_device init");
 	if (!mic_ctx) {
 		PM_DEBUG("Error retreving driver context\n");
 		return 0;
@@ -1009,11 +1010,15 @@ pm_start_device(mic_ctx_t *mic_ctx)
 
 	PM_DEBUG("Resume MIC device:%d\n", mic_ctx->bi_id);
 	/* Make sure the Power reset during Resume/Restore is complete*/
+	printk("mic: pm_start_device adapter_wait_reset start");
 	adapter_wait_reset(mic_ctx);
+	printk("mic: pm_start_device adapter_wait_reset end");
 	wait_for_reset(mic_ctx);
+	printk("mic: pm_start_device wait_for_reset end");
 
 	/*Perform software reset */
 	adapter_reset(mic_ctx, RESET_WAIT, !RESET_REATTEMPT);
+	printk("mic: pm_start_device adapter_reset end");
 	wait_for_reset(mic_ctx);
 
 	/* Boot uOS only if it was online before suspend */
@@ -1023,6 +1028,7 @@ pm_start_device(mic_ctx_t *mic_ctx)
 		}
 	}
 
+	printk("mic: pm_start_device end");
 	return 0;
 }
 

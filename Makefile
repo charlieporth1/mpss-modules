@@ -30,7 +30,11 @@
 # license agreement provided with this code and agreed upon with Intel,
 # no license, express or implied, by estoppel or otherwise, to any
 # intellectual property rights is granted herein.
+CXX=g++
+CC=gcc
+CXXFLAGS=-g -std=gnu90 -Wall -pedantic
 
+#CFLAGS=-I.
 MPSS_COMMIT ?= $(or $(shell sed -ne '2 p' .mpss-metadata 2>/dev/null), \
 	$(error .mpss-metadata file is missing or incorrect))
 MPSS_VERSION ?= $(or $(shell sed -ne '1 p' .mpss-metadata 2>/dev/null), \
@@ -71,7 +75,11 @@ install: modules_install conf_install kdev_install
 
 modules modules_install: %:
 	$(MAKE) -C $(KERNEL_SRC) M=$(CURDIR) $* \
-		INSTALL_MOD_PATH=$(DESTDIR)
+		INSTALL_MOD_PATH=$(DESTDIR) \
+#		CFLAGS=$(CFLAGS) \
+#		CXXFLAGS=$(CXXFLAGS) \
+#		CC=$(CC) \
+#		CXX=$(CXX)
 
 conf_install:
 ifneq ($(MIC_CARD_ARCH),)
@@ -104,9 +112,19 @@ kdev_install:
 	$(INSTALL_d) $(DESTDIR)$(kmodinstalldir)
 	$(INSTALL_f) Module.symvers $(DESTDIR)$(kmodinstalldir)/scif.symvers
 	$(INSTALL_d) $(DESTDIR)$(kmodincludedir)
-	$(INSTALL_f) include/scif.h $(DESTDIR)$(kmodincludedir)
+#	$(INSTALL_f) include/mic_common.h $(DESTDIR)$(kmodincludedir)
+#	$(INSTALL_f) include/mic_interrupts.h $(DESTDIR)$(kmodincludedir)
+#	$(INSTALL_f) include/micint.h $(DESTDIR)$(kmodincludedir)
+#	$(INSTALL_f) include/scif_ioctl.h $(DESTDIR)$(kmodincludedir)
+#	$(INSTALL_f) include/scif.h $(DESTDIR)$(kmodincludedir)
+#	$(INSTALL_d) $(DESTDIR)$(kmodincludedir)
 uninstall:
 	rm -rf $(kmodinstalldir)/extra/mic.ko
+	rm -rf $(DESTDIR)$(kmodincludedir)/mic_common.h
+	rm -rf $(DESTDIR)$(kmodincludedir)/mic_interrupts.h
+	rm -rf $(DESTDIR)$(kmodincludedir)/micint.h
+	rm -rf $(DESTDIR)$(kmodincludedir)/scif_ioctl.h
+	rm -rf $(DESTDIR)$(kmodincludedir)/scif.h
 	rm -rf $(kmodinstalldir)/kernel/drivers/misc/mic/
 	rm -rf $(KERNEL_SRC)/mic.ko
 	rm -rf $(KERNEL_SRC)/scif.symvers
