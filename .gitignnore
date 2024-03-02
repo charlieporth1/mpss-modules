@@ -1,5 +1,13 @@
-.*
-!/.gitignore
-!/.kdev*
-!/.mpss-metadata
+*.o
+*.cmd
+*.o.d
+.kdev*
+.mpss-metadata
 *.kdev4
+/.mic.ko.cmd
+*.o.cmd
+Module.symvers
+mic.mod
+mic.mod.c
+mic.ko
+modules.order
