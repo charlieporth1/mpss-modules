@@ -939,9 +939,9 @@ static struct rtnl_link_ops micvnet_link_ops __read_mostly = {
 static int
 micvnet_init_hw_regs(struct micvnet_info *vnet_info)
 {
-	printk("mic: micvnet_init_hw_regs init ");
 #ifdef HOST
 	mic_ctx_t *mic_ctx = vnet_info->mic_ctx;
+	printk("mic: micvnet_init_hw_regs host init");
 
 	vnet_info->vi_pdev = mic_ctx->bi_pdev;
 	vnet_info->vi_sbox = (uint8_t *)((unsigned long) mic_ctx->mmio.va +
@@ -950,6 +950,7 @@ micvnet_init_hw_regs(struct micvnet_info *vnet_info)
 		= (uint32_t *)((unsigned long)mic_ctx->mmio.va +
 			       HOST_SBOX_BASE_ADDRESS + SBOX_SCRATCH14);
 #else
+	printk("mic: micvnet_init_hw_regs target init");
 	vnet_info->vi_sbox = ioremap_nocache(SBOX_BASE, SBOX_MMIO_LENGTH);
 	vnet_info->vi_dbox = ioremap_nocache(DBOX_BASE, SBOX_MMIO_LENGTH);
 	if (!vnet_info->vi_sbox) {
@@ -974,9 +975,10 @@ micvnet_deinit_hw_regs(struct micvnet_info *vnet_info)
 static int
 micvnet_init_interrupts(struct micvnet_info *vnet_info)
 {
-	printk("mic: micvnet_init_interrupts init ");
 	mic_ctx_t *mic_ctx = vnet_info->mic_ctx;
 	int ret = 0;
+
+	printk("mic: micvnet_init_interrupts init");
 
 	spin_lock_init(&vnet_info->vi_txlock);
 	spin_lock_init(&vnet_info->vi_rxlock);
