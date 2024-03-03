@@ -112,6 +112,12 @@ kdev_install:
 	$(INSTALL_d) $(DESTDIR)$(kmodinstalldir)
 	$(INSTALL_f) Module.symvers $(DESTDIR)$(kmodinstalldir)/scif.symvers
 	$(INSTALL_d) $(DESTDIR)$(kmodincludedir)
+	$(INSTALL_f) include/mic_common.h $(DESTDIR)$(kmodincludedir)
+	$(INSTALL_f) include/mic_interrupts.h $(DESTDIR)$(kmodincludedir)
+	$(INSTALL_f) include/micint.h $(DESTDIR)$(kmodincludedir)
+	$(INSTALL_f) include/scif_ioctl.h $(DESTDIR)$(kmodincludedir)
+	$(INSTALL_f) include/scif.h $(DESTDIR)$(kmodincludedir)
+
 #	$(INSTALL_f) include/mic_common.h $(DESTDIR)$(kmodincludedir)
 #	$(INSTALL_f) include/mic_interrupts.h $(DESTDIR)$(kmodincludedir)
 #	$(INSTALL_f) include/micint.h $(DESTDIR)$(kmodincludedir)
