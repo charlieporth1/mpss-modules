@@ -1,5 +1,0 @@
-.*
-!/.gitignore
-!/.kdev*
-!/.mpss-metadata
-*.kdev4

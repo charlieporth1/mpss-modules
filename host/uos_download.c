@@ -891,16 +891,13 @@ exit:
 	broken check
 	if brokren
 */
-//reset_timer(unsigned long arg)
-//reset_timer(mic_ctx_t *arg)
 void
 reset_timer(struct timer_list *arg)
 {
 	printk("mic: reset_timer init");
-	printk("mic: CTP OG reset_timer start arg %lu", (unsigned long)arg);
-//	unsigned long *ul_arg = (unsigned long *) arg;
-	mic_ctx_t *mic_ctx = (mic_ctx_t *)arg;
-	printk("mic: CTP OG reset_timer middle 1 mic_ctx %lu", (unsigned long)mic_ctx);
+	printk("mic: CTP OG reset_timer start arg %px", arg);
+	mic_ctx_t *mic_ctx = from_timer(mic_ctx, arg, boot_timer);
+	printk("mic: CTP OG reset_timer middle 1 mic_ctx %px", mic_ctx);
 
 	uint32_t scratch2 = 0;
 	uint32_t postcode = mic_getpostcode(mic_ctx);
@@ -1004,9 +1001,9 @@ adapter_wait_reset(mic_ctx_t *mic_ctx)
 	printk("mic: CTP OG adapter_wait_reset middle 2");
 //	add_timer(&mic_ctx->boot_timer);
 	printk("mic: CTP OG adapter_wait_reset end");
-	printk("mic: CTP OG adapter_wait_reset mic_ctx %lu", (unsigned long)mic_ctx);
+	printk("mic: CTP OG adapter_wait_reset mic_ctx %px", mic_ctx);
 //	printk("mic: CTP OG adapter_wait_reset mic_ctx %d", (u32)mic_ctx);
-	printk("mic: CTP OG adapter_wait_reset mic_ctx %lu", (unsigned long)&mic_ctx->boot_timer);
+	printk("mic: CTP OG adapter_wait_reset mic_ctx->boottimer %px", &mic_ctx->boot_timer);
 //	reset_timer(mic_ctx);
 }
 
@@ -1196,7 +1193,7 @@ online_timer(struct timer_list *arg)
 {
 	printk("mic: online_timer init");
 
-	mic_ctx_t *mic_ctx = (mic_ctx_t *)arg;
+	mic_ctx_t *mic_ctx = from_timer(mic_ctx, arg, boot_timer);
 	uint64_t delay = (jiffies - mic_ctx->boot_start) / HZ;
 
 	if (mic_ctx->state == MIC_ONLINE)
@@ -1226,11 +1223,15 @@ boot_timer(struct timer_list *arg)
 //boot_timer(unsigned long arg)
 {
 	printk("mic: boot_timer init");
-	mic_ctx_t *mic_ctx = (mic_ctx_t *)arg;
-	struct micvnet_info *vnet_info = (struct micvnet_info *) mic_ctx->bi_vethinfo; uint64_t 
-	delay = (jiffies - mic_ctx->boot_start) / HZ; bool timer_restart = false;
+	mic_ctx_t *mic_ctx = from_timer(mic_ctx, arg, boot_timer);
+	struct micvnet_info *vnet_info = (struct micvnet_info *) mic_ctx->bi_vethinfo;
+	uint32_t postcode = mic_getpostcode(mic_ctx);
+	uint64_t delay = (jiffies - mic_ctx->boot_start) / HZ;
+	bool timer_restart = false;
+        printk("mic%d: (Post Code %c%c)\n", mic_ctx->bi_id, postcode & 0xff, (postcode >> 8) & 0xff);
 
 	if ((mic_ctx->state != MIC_BOOT) && (mic_ctx->state != MIC_ONLINE)) {
+	        printk("mic: boot_timer wrong state");
 		return;
 	}
 
@@ -1258,6 +1259,7 @@ boot_timer(struct timer_list *arg)
 		timer_setup(&mic_ctx->boot_timer, boot_timer, 0);
 		mod_timer(&mic_ctx->boot_timer, jiffies + HZ);
 //		add_timer(&mic_ctx->boot_timer);
+	        printk("mic: boot_timer timer restarted");
 		return;
 	}
 
@@ -1335,8 +1337,6 @@ adapter_post_boot_device(mic_ctx_t *mic_ctx)
 
 	timer_setup(&mic_ctx->boot_timer, boot_timer, 0);
 	mod_timer(&mic_ctx->boot_timer, jiffies + HZ);
-	printk("mic %d: CTP Kernel OG adapter_post_boot_device middle", mic_ctx->bi_id);
-//	add_timer(&mic_ctx->boot_timer);
 	printk("mic %d: CTP Kernel OG adapter_post_boot_device end", mic_ctx->bi_id);
 	return 0;
 }

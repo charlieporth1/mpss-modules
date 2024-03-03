@@ -46,7 +46,7 @@ static void micvcons_set_termios(struct tty_struct *tty, struct ktermios * old);
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4,14,0)
 static void micvcons_timeout(unsigned long);
 #else
-static void micvcons_timeout(struct timer_list *);
+static void micvcons_timeout(struct timer_list *t);
 #endif
 static void micvcons_throttle(struct tty_struct *tty);
 static void micvcons_unthrottle(struct tty_struct *tty);
@@ -66,9 +66,15 @@ static struct tty_operations micvcons_tty_ops = {
 static struct tty_driver *micvcons_tty = NULL;
 static u16 extra_timeout = 0;
 static u8 restart_timer_flag = MICVCONS_TIMER_RESTART;
-static struct timer_list vcons_timer;
-static struct list_head timer_list_head;
 static spinlock_t timer_list_lock;
+
+struct vcons_timer_list {
+    struct timer_list timer;
+    struct list_head  timer_list_head;
+};
+
+static struct vcons_timer_list  vcons_timer;
+
 
 int
 micvcons_create(int num_bds)
@@ -79,7 +85,7 @@ micvcons_create(int num_bds)
 	char wq_name[14];
 	struct device *dev;
 
-	INIT_LIST_HEAD(&timer_list_head);
+	INIT_LIST_HEAD(&vcons_timer.timer_list_head);
 
 	if (micvcons_tty)
 		goto exit;
@@ -149,13 +155,12 @@ micvcons_create(int num_bds)
 		}
 		INIT_WORK(&port->dp_wakeup_read_buf, micvcons_wakeup_readbuf);
 	}
-
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4,14,0)
-	vcons_timer.function = micvcons_timeout;
-	vcons_timer.data = (unsigned long)(&timer_list_head);
-	init_timer(&vcons_timer);
+	vcons_timer.timer.function = micvcons_timeout;
+	vcons_timer.timer.data = (unsigned long)(&vcons_timer.timer_list_head);
+	init_timer(&vcons_timer.timer);
 #else
-	timer_setup(&vcons_timer, micvcons_timeout, 0);	
+    timer_setup(&vcons_timer.timer, micvcons_timeout, 0);
 #endif
 exit:
 	return ret;
@@ -224,10 +229,10 @@ micvcons_open(struct tty_struct * tty, struct file * filp)
 		if (ret != 0)
 			goto exit_locked;
 		spin_lock(&timer_list_lock);
-		list_add_tail_rcu(&port->list_member, &timer_list_head);
-		if (list_is_singular(&timer_list_head)) {
+		list_add_tail_rcu(&port->list_member, &vcons_timer.timer_list_head);
+		if (list_is_singular(&vcons_timer.timer_list_head)) {
 			restart_timer_flag = MICVCONS_TIMER_RESTART;
-			mod_timer(&vcons_timer, jiffies + 
+			mod_timer(&vcons_timer.timer, jiffies + 
 				msecs_to_jiffies(MICVCONS_SHORT_TIMEOUT));
 		}
 		spin_unlock(&timer_list_lock);
@@ -244,10 +249,10 @@ micvcons_del_timer_entry(micvcons_port_t *port)
 {
 	spin_lock(&timer_list_lock);
 	list_del_rcu(&port->list_member);
-	if (list_empty(&timer_list_head)) {
+	if (list_empty(&vcons_timer.timer_list_head)) {
 		restart_timer_flag = MICVCONS_TIMER_SHUTDOWN;
 		spin_unlock(&timer_list_lock);
-		del_timer_sync(&vcons_timer);
+		del_timer_sync(&vcons_timer.timer);
 	} else {
 		spin_unlock(&timer_list_lock);
 	}
@@ -510,16 +515,27 @@ micvcons_wakeup_readbuf(struct work_struct *work)
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4,14,0)
 static void
 micvcons_timeout(unsigned long data)
+{
+/* Analysis:
+   data points to a 'struct list_head' 
+   'struct timer_list' has a member 'struct list_head entry'
+
+   list_for_each_entry_rcu(pos, head, member)
+   @pos:    the type * to use as a loop cursor.
+   @head:   the head for your list.
+   @member: the name of the list_head within the struct.
+*/
+	struct list_head *timer_list_ptr = (struct list_head *)data;
+
 #else
 static void
 micvcons_timeout(struct timer_list *t)
-#endif
 {
-#if LINUX_VERSION_CODE < KERNEL_VERSION(4,14,0)
-	struct list_head *timer_list_ptr = (struct list_head *)data;
-#else
-	struct list_head *timer_list_ptr = (struct list_head *)t;
+	struct vcons_timer_list *my_vcons_timer = from_timer( my_vcons_timer, t, timer);
+	struct list_head *timer_list_ptr = &my_vcons_timer->timer_list_head;
+
 #endif
+
 	micvcons_port_t *port;
 	u8 console_active = 0;
 	int num_chars_read = 0;
@@ -531,13 +547,12 @@ micvcons_timeout(struct timer_list *t)
 			console_active = 1;
 	}
 	rcu_read_unlock();
-
 	spin_lock(&timer_list_lock);
 	if (restart_timer_flag == MICVCONS_TIMER_RESTART) {
 		extra_timeout = (console_active ? 0 :
 				extra_timeout + MICVCONS_SHORT_TIMEOUT);
 		extra_timeout = min(extra_timeout, (u16)MICVCONS_MAX_TIMEOUT);
-		mod_timer(&vcons_timer, jiffies + 
+		mod_timer(&vcons_timer.timer, jiffies + 
 			msecs_to_jiffies(MICVCONS_SHORT_TIMEOUT+extra_timeout));
 	}
 	spin_unlock(&timer_list_lock);
