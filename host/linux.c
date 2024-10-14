@@ -312,7 +312,7 @@ mic_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4,8,0)
         err = pci_enable_msix(mic_ctx->bi_pdev, bd_info->bi_msix_entries, MIC_NUM_MSIX_ENTRIES);
 #else
-        err = pci_enable_msix_range(mic_ctx->bi_pdev, bd_info->bi_msix_entries, MIC_NUM_MSIX_ENTRIES, MIC_NUM_MSIX_ENTRIES);
+        err = pci_enable_msix_exact(mic_ctx->bi_pdev, bd_info->bi_msix_entries, MIC_NUM_MSIX_ENTRIES);
 #endif
 		if (err == 0 ) {
 			// Only support 1 MSIx for now
